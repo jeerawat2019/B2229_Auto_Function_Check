@@ -48,9 +48,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="X-Unit">
-      <HintPath>..\..\X-Unit\X-Unit\bin\Debug\X-Unit.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlElement\CtrBrowser.cs">
@@ -112,6 +109,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\X-Unit\X-Unit\X-Unit.csproj">
+      <Project>{25560b73-8fe0-4357-8156-19704e247190}</Project>
+      <Name>X-Unit</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
