@@ -16,7 +16,7 @@ namespace B2229_AT_FuncCheck
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new frmAppMachine());
         }
     }
 }

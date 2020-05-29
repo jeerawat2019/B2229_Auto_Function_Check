@@ -46,14 +46,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Dev-AppMachine\Machine.cs" />
+    <Compile Include="Dev-AppMachine\StaticName.cs" />
+    <Compile Include="Dev-AppStation\IStation.cs" />
+    <Compile Include="Dev-AppStation\StationBase.cs" />
+    <Compile Include="Dev-AppStation\TesterStation\PC1_SFIT.cs" />
+    <Compile Include="Dev-AppStation\TesterStation\PC2_SFIT.cs" />
+    <Compile Include="Dev-AppStation\TesterStation\PC3_AGING.cs" />
+    <Compile Include="Dev-AppStation\TesterStation\PC5_WD.cs" />
+    <Compile Include="frmAppMachine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="frmAppMachine.Designer.cs">
+      <DependentUpon>frmAppMachine.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAppMachine.resx">
+      <DependentUpon>frmAppMachine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -76,5 +87,36 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppComponent\Communications\ConnectBase\CommuSystem.csproj">
+      <Project>{1fa80e64-1394-42f1-88e6-a4adf533f49e}</Project>
+      <Name>CommuSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppComponent\Communications\LogSystems\DefaultLogger\LogSystem.csproj">
+      <Project>{08f7d7aa-10f8-4c16-b505-2f2aa7e87e37}</Project>
+      <Name>LogSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppComponent\Communications\RS232\Comport.csproj">
+      <Project>{2ba38073-c5c6-4dfd-a2ea-15f00a956f5c}</Project>
+      <Name>Comport</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppComponent\Communications\TCPIP\TCPIP.csproj">
+      <Project>{393ca60a-1633-4a23-801f-fbff21866282}</Project>
+      <Name>TCPIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppCore\X-Core\X-Core\X-Core.csproj">
+      <Project>{963fa97c-9e9c-440d-957d-abc6a9d6d02e}</Project>
+      <Name>X-Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppCore\X-Unit\X-Unit\X-Unit.csproj">
+      <Project>{25560b73-8fe0-4357-8156-19704e247190}</Project>
+      <Name>X-Unit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pc2Pc\Pc2Pc.csproj">
+      <Project>{806875b3-d1c5-4889-b56b-9e8c30a1303c}</Project>
+      <Name>Pc2Pc</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
