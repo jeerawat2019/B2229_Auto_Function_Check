@@ -14,6 +14,24 @@ namespace B2229_AT_FuncCheck.Dev_AppMachine
         ///
         internal const string AllStation = "AllStation";
         ///
+        internal const string AllStateMachine = "AllStateMachine";
+        /// <summary>
+        /// 
+        /// </summary>
+        internal const string SMHomeRes = "SMHomeRes";
+        ///
+        internal const string SMMain = "SMMain";
+        ///
+        internal const string SMPC1_SFIT = "SMPC1_SFIT";
+        ///
+        internal const string SMPC2_SFIT = "SMPC2_SFIT";
+        ///
+        internal const string SMPC3_AGING = "SMPC3_AGING";
+        ///
+        internal const string SMPC4_WD = "SMPC4_WD";
+        /// <summary>
+        ///
+        /// </summary>
         #region Station static name
 
         internal static string PC1_S_FIT = "PC1_S_FIT";

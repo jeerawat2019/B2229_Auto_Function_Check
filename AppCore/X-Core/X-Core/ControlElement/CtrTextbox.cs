@@ -7,6 +7,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Windows.Forms;
+using X_Core.CompElement;
 
 namespace X_Core.ControlElement
 {
@@ -23,7 +24,9 @@ namespace X_Core.ControlElement
             get { return _logChanges; }
             set { _logChanges = value; }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public CtrTextbox()
         {
         }

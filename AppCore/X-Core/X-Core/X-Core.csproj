@@ -37,7 +37,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,17 +52,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompElement\MethodWrapper.cs" />
+    <Compile Include="CompElement\PropertyWrapper.cs" />
     <Compile Include="ControlElement\CtrBrowser.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ControlElement\CtrBrowser.Designer.cs">
       <DependentUpon>CtrBrowser.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlElement\CtrCompBaseProp.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlElement\CtrCompBaseProp.Designer.cs">
+      <DependentUpon>CtrCompBaseProp.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlElement\CtrTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ControlElement\CtrTextbox.Designer.cs">
       <DependentUpon>CtrTextbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlElement\MPIDCtl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlElement\MPIDCtl.Designer.cs">
+      <DependentUpon>MPIDCtl.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -82,6 +98,12 @@
     <Compile Include="X-CoreXmlSerializer.cs" />
     <EmbeddedResource Include="ControlElement\CtrBrowser.resx">
       <DependentUpon>CtrBrowser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlElement\CtrCompBaseProp.resx">
+      <DependentUpon>CtrCompBaseProp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlElement\MPIDCtl.resx">
+      <DependentUpon>MPIDCtl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

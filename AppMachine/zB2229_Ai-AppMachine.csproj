@@ -33,8 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>E:\002 INSTALL\Bunifu UI WinForms 1.11.5.1\Bunifu UI WinForms 1.11.5.1\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppControlBase\AppFloatableSMFlowChart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppControlBase\AppFloatableSMFlowChart.Designer.cs">
+      <DependentUpon>AppFloatableSMFlowChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppControlBase\AppUserControlBase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppControlBase\AppUserControlBase.Designer.cs">
+      <DependentUpon>AppUserControlBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dev-AppMachine\Machine.cs" />
     <Compile Include="Dev-AppMachine\StaticName.cs" />
     <Compile Include="Dev-AppStation\IStation.cs" />
@@ -62,6 +79,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AppControlBase\AppFloatableSMFlowChart.resx">
+      <DependentUpon>AppFloatableSMFlowChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppControlBase\AppUserControlBase.resx">
+      <DependentUpon>AppUserControlBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAppMachine.resx">
       <DependentUpon>frmAppMachine.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,6 +126,14 @@
     <ProjectReference Include="..\AppComponent\Communications\TCPIP\TCPIP.csproj">
       <Project>{393ca60a-1633-4a23-801f-fbff21866282}</Project>
       <Name>TCPIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppComponent\SM-Flow\SMFlowChart\SMFlowChart.csproj">
+      <Project>{6854fec3-1aae-42b8-a534-5b5985b0cc6e}</Project>
+      <Name>SMFlowChart</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppComponent\SM-Flow\SMLib.csproj">
+      <Project>{4cded7e6-374f-4b39-993c-e0e7599a079f}</Project>
+      <Name>SMLib</Name>
     </ProjectReference>
     <ProjectReference Include="..\AppCore\X-Core\X-Core\X-Core.csproj">
       <Project>{963fa97c-9e9c-440d-957d-abc6a9d6d02e}</Project>
