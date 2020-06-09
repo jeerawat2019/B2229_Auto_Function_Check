@@ -71,6 +71,18 @@
     <Compile Include="Dev-AppStation\TesterStation\PC2_SFIT.cs" />
     <Compile Include="Dev-AppStation\TesterStation\PC3_AGING.cs" />
     <Compile Include="Dev-AppStation\TesterStation\PC5_WD.cs" />
+    <Compile Include="Display\Production\UserProduction.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Display\Production\UserProduction.Designer.cs">
+      <DependentUpon>UserProduction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Display\Setup\UserSetup.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Display\Setup\UserSetup.Designer.cs">
+      <DependentUpon>UserSetup.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAppMachine.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +96,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppControlBase\AppUserControlBase.resx">
       <DependentUpon>AppUserControlBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display\Production\UserProduction.resx">
+      <DependentUpon>UserProduction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Display\Setup\UserSetup.resx">
+      <DependentUpon>UserSetup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAppMachine.resx">
       <DependentUpon>frmAppMachine.cs</DependentUpon>

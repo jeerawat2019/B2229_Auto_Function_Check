@@ -62,7 +62,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.32558F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.674418F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(905, 860);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1264, 749);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // tabControl1
@@ -75,7 +75,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(796, 788);
+            this.tabControl1.Size = new System.Drawing.Size(1115, 685);
             this.tabControl1.TabIndex = 1;
             // 
             // tabProduction
@@ -114,7 +114,7 @@
             this.tabStateMachine.Location = new System.Drawing.Point(4, 22);
             this.tabStateMachine.Name = "tabStateMachine";
             this.tabStateMachine.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStateMachine.Size = new System.Drawing.Size(788, 762);
+            this.tabStateMachine.Size = new System.Drawing.Size(1107, 659);
             this.tabStateMachine.TabIndex = 3;
             this.tabStateMachine.Text = "State Machine";
             this.tabStateMachine.UseVisualStyleBackColor = true;
@@ -131,7 +131,7 @@
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(782, 756);
+            this.tabControl2.Size = new System.Drawing.Size(1101, 653);
             this.tabControl2.TabIndex = 0;
             // 
             // tabHomeRes
@@ -162,7 +162,7 @@
             this.tabStation.Location = new System.Drawing.Point(23, 4);
             this.tabStation.Name = "tabStation";
             this.tabStation.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStation.Size = new System.Drawing.Size(755, 748);
+            this.tabStation.Size = new System.Drawing.Size(1074, 645);
             this.tabStation.TabIndex = 2;
             this.tabStation.Text = "Station";
             this.tabStation.UseVisualStyleBackColor = true;
@@ -191,14 +191,14 @@
             this.tcSMStation.Location = new System.Drawing.Point(3, 3);
             this.tcSMStation.Name = "tcSMStation";
             this.tcSMStation.SelectedIndex = 0;
-            this.tcSMStation.Size = new System.Drawing.Size(749, 742);
+            this.tcSMStation.Size = new System.Drawing.Size(1068, 639);
             this.tcSMStation.TabIndex = 0;
             // 
             // frmAppMachine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 860);
+            this.ClientSize = new System.Drawing.Size(1264, 749);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmAppMachine";
             this.Text = "appMachine";

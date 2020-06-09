@@ -89,6 +89,9 @@ namespace B2229_AT_FuncCheck
                 mCtrBrowser.Rebuild();
                 ///
                 GetSM_BindControl();
+                ///
+                GetAllDisplay();
+                ///
             }
             catch (Exception ex)
             {
@@ -96,6 +99,20 @@ namespace B2229_AT_FuncCheck
                 throw;
             }
         }
+        private Display.Production.UserProduction mUserProductionDisplay = null;
+        /// <summary>
+        /// 
+        /// </summary>
+        private void GetAllDisplay()
+        {
+            mUserProductionDisplay = new Display.Production.UserProduction();
+            ///
+            tabProduction.Controls.Add(mUserProductionDisplay);
+            ///
+            tabAllSetup.Controls.Add(new Display.Setup.UserSetup());
+
+        }
+
         private SMStateMachine mSMHomeRes = null;
         ///
         private SMStateMachine mSMMain = null;
@@ -108,6 +125,7 @@ namespace B2229_AT_FuncCheck
         /// </summary>
         private void GetSM_BindControl()
         {
+            #region Create control state machine module
             ///
             mSMHomeRes = X_CoreS.GetComponent(Dev_AppMachine.StaticName.SMHomeRes) as SMStateMachine;
             ///
@@ -119,9 +137,9 @@ namespace B2229_AT_FuncCheck
             {
                 SMStateMachine sm = smchild as SMStateMachine;
                 ///
-                if(sm != null)
+                if (sm != null)
                 {
-                    if(sm.Name == Dev_AppMachine.StaticName.SMHomeRes)
+                    if (sm.Name == Dev_AppMachine.StaticName.SMHomeRes)
                     {
                         mAllStateMachine.Add(sm);
                         ///
@@ -137,7 +155,7 @@ namespace B2229_AT_FuncCheck
                         ///
                         tcSMReset.Controls.Add(tpSM);
                     }
-                    else if(sm.Name == Dev_AppMachine.StaticName.SMMain)
+                    else if (sm.Name == Dev_AppMachine.StaticName.SMMain)
                     {
                         mAllStateMachine.Add(sm);
                         ///
@@ -154,7 +172,7 @@ namespace B2229_AT_FuncCheck
                         tcSMMain.Controls.Add(tpSM);
                     }
                     else
-                   {
+                    {
                         mAllStateMachine.Add(sm);
                         ///
                         AppMachine.AppControlBase.AppFloatableSMFlowChart appFloatableSMFlowChart = new AppMachine.AppControlBase.AppFloatableSMFlowChart();
@@ -170,7 +188,8 @@ namespace B2229_AT_FuncCheck
                         tcSMStation.Controls.Add(tpSM);
                     }
                 }
-            }
+            } 
+            #endregion
         }
         /// <summary>
         /// 
