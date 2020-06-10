@@ -8,6 +8,9 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
 {
     public class PC1_SFIT : StationBase
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public PC1_SFIT() { }
         public PC1_SFIT(string name) :base(name) { }
         public override void Initialize()

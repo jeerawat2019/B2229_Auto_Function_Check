@@ -92,7 +92,10 @@ namespace X_Core.CompElement
         {
             get
             {
+                if (Name == "") return -1;//Modify by Mr.jee 6/9/20
+                ///
                 string[] split = Name.Split(' ', '_');
+                ///
                 for (int i = split.Length - 1; i >= 0; i--)
                 {
                     if (split[i] != null && char.IsDigit(split[i][0]))

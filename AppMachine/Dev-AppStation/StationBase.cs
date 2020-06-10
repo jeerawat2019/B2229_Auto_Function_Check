@@ -1,6 +1,7 @@
 ﻿using Pc2Pc.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,21 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
 {
     public class StationBase : CompBase,IStation
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        private AiComp.ConnectType.PortSetting mPortSetting = null;
+        /// <summary>
+        /// 
+        /// </summary>
+        [Category("Communication Port")]
+        public AiComp.ConnectType.PortSetting PortSetting
+        {
+            [StateMachineEnabled]
+            get { return GetPropValue(() => mPortSetting); }
+            [StateMachineEnabled]
+            set { SetPropValue(() => mPortSetting, value); }
+        }
         [XmlIgnore]
         public string JigData2Dcode 
         {
@@ -93,6 +109,8 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
         public override void InitializeIDReferences()
         {
             base.InitializeIDReferences();
+            ///
+
         }
         /// <summary>
         /// 

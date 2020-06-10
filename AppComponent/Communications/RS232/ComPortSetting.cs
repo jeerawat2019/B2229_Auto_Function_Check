@@ -317,7 +317,7 @@ namespace AiComp.ConnectType
         public PortSetting()
         {
         }
-
+        public PortSetting(string name) : base(name) { }
         /// <summary>
         /// For first time setup
         /// </summary>
