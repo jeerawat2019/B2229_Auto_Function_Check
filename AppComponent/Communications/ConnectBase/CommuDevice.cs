@@ -11,6 +11,9 @@ namespace AiComp.ConnectType.Commu
         {
             /// <summary>RS232</summary>
             RS232,
+            /// <summary>RS232</summary>
+            Pc232Link,
+            ///
         }
     }
 }

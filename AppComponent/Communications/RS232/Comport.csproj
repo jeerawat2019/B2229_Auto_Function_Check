@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ComPortSetting.cs" />
+    <Compile Include="RS232.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\AppCore\X-Core\X-Core\X-Core.csproj">

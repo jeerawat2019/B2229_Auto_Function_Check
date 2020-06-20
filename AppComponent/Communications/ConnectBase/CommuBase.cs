@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using X_Core.CompElement;
+using X_Unit;
 
 namespace AiComp.ConnectType.Commu
 {

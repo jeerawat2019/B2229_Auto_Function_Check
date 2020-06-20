@@ -112,6 +112,10 @@
       <Project>{963fa97c-9e9c-440d-957d-abc6a9d6d02e}</Project>
       <Name>X-Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\AppCore\X-Unit\X-Unit\X-Unit.csproj">
+      <Project>{25560B73-8FE0-4357-8156-19704E247190}</Project>
+      <Name>X-Unit</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

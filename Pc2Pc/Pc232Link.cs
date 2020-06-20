@@ -7,17 +7,19 @@ using System.IO.Ports;
 using System.ComponentModel;
 using System.Threading;
 
-using AiComp.ConnectType;
+
 using X_Unit;
 using X_Core.CompElement;
 using X_Core.ControlElement;
 using X_Core;
-using Pc2Pc.Model;
 using System.Xml.Serialization;
 
-namespace Pc2Pc
+using Pc2Pc.Model;
+using AiComp.ConnectType.Commu;
+
+namespace AiComp.ConnectType.Pc2Pc
 {
-    public class Pc232Link : CompBase,Inf.IPc2Pc
+    public class Pc232Link : CommuBase//, Inf.IPc2Pc
     {
         private BackgroundWorker mBackgroundUpdateLoop = null;
         /// <summary>
@@ -34,14 +36,25 @@ namespace Pc2Pc
         private ManualResetEvent mWaitPortRead = new ManualResetEvent(true);
         /// <summary>
         /// 
-        /// </summary>
-        [XmlIgnore]
-        public Pc2PcModel mPc2PcModel
+        /// </summary>     
+        [Category("Model controller PC To PC")]
+        public Pc2PcModel Pc2PcModels
         {
-            [StateMachineEnabled]
-            get { return GetPropValue(() => mPc2PcModel, null); }
-            [StateMachineEnabled]
-            set { SetPropValue(() => mPc2PcModel, value); }
+            //
+            get { return GetPropValue(() => Pc2PcModels); }
+            //
+            set { SetPropValue(() => Pc2PcModels, value); }
+        }
+        /// <summary>
+        /// 
+        /// </summary>     
+        [Category("Communication Port")]
+        public PC232SetUp PCSetComport
+        {
+            //[StateMachineEnabled]
+            get { return GetPropValue(() => PCSetComport); }
+            //[StateMachineEnabled]
+            set { SetPropValue(() => PCSetComport, value); }
         }
         /// <summary>
         /// 
@@ -77,15 +90,16 @@ namespace Pc2Pc
         public void InitializeComport()
         {
             mSerial = new SerialPort();
+            //Pc2PcModels.PCSetComport = new PC232SetUp(); 
             try
             {
-              
-                mSerial.PortName = mPc2PcModel.PCSetComport.CommPort.ToString();
-                mSerial.BaudRate = (int)mPc2PcModel.PCSetComport.BaudRate;
-                mSerial.StopBits = mPc2PcModel.PCSetComport.StopBits;
-                mSerial.Parity = mPc2PcModel.PCSetComport.Parity;
-                mSerial.ReadTimeout = (int)mPc2PcModel.PCSetComport.ReadWriteTimeOut;
-                mSerial.WriteTimeout = (int)mPc2PcModel.PCSetComport.ReadWriteTimeOut;
+
+                mSerial.PortName = PCSetComport.ToString();
+                mSerial.BaudRate = (int)PCSetComport.BaudRate;
+                mSerial.StopBits = PCSetComport.StopBits;
+                mSerial.Parity = PCSetComport.Parity;
+                mSerial.ReadTimeout = (int)PCSetComport.ReadWriteTimeOut;
+                mSerial.WriteTimeout = (int)PCSetComport.ReadWriteTimeOut;
                 ///
                 //mSerial.DataReceived += MSerial_DataReceived;
                 ///
@@ -97,7 +111,7 @@ namespace Pc2Pc
                 ///
                 if (!mSerial.IsOpen)
                     ///
-                    throw new X_CoreExceptionError($"Port { mPc2PcModel.PCSetComport.CommPort.ToString() } is not opened");
+                    throw new X_CoreExceptionError($"Port { PCSetComport.CommPort.ToString() } is not opened");
                 ///
                 this.Simulate = eSimulate.None;
             }
@@ -159,7 +173,7 @@ namespace Pc2Pc
         /// <summary>
         /// 
         /// </summary>
-        public string OnSendPortCommand(string cmdSend,Miliseconds timout,bool isNeedReply = true)
+        public  string OnSendPortCommand(string cmdSend,Miliseconds timout,bool isNeedReply = true)
         {           
             while(mSerial.BytesToRead > 0)
             {
@@ -230,14 +244,17 @@ namespace Pc2Pc
             ///
             base.PreDestroy();
         }
-
+        public override void Write(string cmd, params object[] args)
+        {
+            base.Write(cmd, args);
+        }
         public JigCommand Pc2PcSetCommand(JigCommand jigStation)
         {
             
             StringBuilder strBuilder = new StringBuilder();
             try
             {
-                mPc2PcModel.PCSetComport.NewLine = PortSetting.eNewLine.CRLF;
+                //mPc2PcModel.PCSetComport.NewLine = PortSetting.eNewLine.CRLF;
                 //PC Header
                 //PC Station
                 //PC JigNo.
@@ -253,7 +270,7 @@ namespace Pc2Pc
                 ///
                 strBuilder.ToString().Substring(0, strBuilder.Length - 1);
                 ///
-                strBuilder.Append(mPc2PcModel.PCSetComport.RawNewLine);              
+                //strBuilder.Append(mPc2PcModel.PCSetComport.RawNewLine);              
                 ///
                 var cmdRecive = OnSendPortCommand(strBuilder.ToString(), 1000,true);
                 ///

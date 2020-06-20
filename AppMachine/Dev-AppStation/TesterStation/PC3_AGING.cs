@@ -8,6 +8,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
 {
     public class PC3_AGING : StationBase
     {
+        public PC3_AGING() { }
         public PC3_AGING(string name) : base(name) { }
         public override void Initialize()
         {

@@ -58,30 +58,40 @@ namespace B2229_AT_FuncCheck
                 ///
                 #region Create object station controll
                 ///
-                mAllStation.Add(new Dev_AppStation.TesterStation.PC1_SFIT(Dev_AppMachine.StaticName.PC1_S_FIT));
-                mAllStation.Add(new Dev_AppStation.TesterStation.PC2_SFIT(Dev_AppMachine.StaticName.PC2_S_FIT));
-                mAllStation.Add(new Dev_AppStation.TesterStation.PC3_AGING(Dev_AppMachine.StaticName.PC3_AGING));
-                mAllStation.Add(new Dev_AppStation.TesterStation.PC5_WD(Dev_AppMachine.StaticName.PC4_WD));
+                CreateAllStationMachine(mAllStation);
+                ///
+                CreateAllTesttingSolution(mMachineFactory);
+                ///
+                #endregion
                 ///
                 mMachineFactory.Add(mAllStation);
                 ///
-                X_CoreS.RootComp.Add(mMachineFactory);
-                #endregion
+                try
+                {
+                    X_CoreS.RootComp.Add(mMachineFactory);
+                }
+                catch (Exception ex)
+                {
 
+                    X_CoreS.LogPopup(ex, "Machine Initialize Unseccessful in loading of application");
+                }
+                ///
                 #region Create object state machine
                 ///
                 CompFactory smDef = new CompFactory((typeof(CompBase)), Dev_AppMachine.StaticName.AllStateMachine);
-                smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMHomeRes));
-                smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMMain));
-                smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMPC1_SFIT));
-                smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMPC2_SFIT));
-                smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMPC3_AGING));
-                smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMPC4_WD));
+
+                CreateAllStateMachineContriller(smDef);
                 ///
-                X_CoreS.RootComp.Add(smDef);
+                try
+                {
+                    X_CoreS.RootComp.Add(smDef);
+                }
+                catch (Exception ex)
+                {
+
+                    X_CoreS.LogPopup(ex, "Machine Initialize Unseccessful in loading of application");
+                }
                 #endregion
-
-
 
                 /// Initialize call after all component definitions
                 X_CoreS.RootComp.InitializeIDReferences();
@@ -99,6 +109,66 @@ namespace B2229_AT_FuncCheck
                 throw;
             }
         }
+
+        private void CreateAllTesttingSolution(CompFactory mMachineFactory)
+        {
+            CompFactory mAllTesterSys = mMachineFactory.Add(new CompBase(Dev_AppMachine.StaticName.AllTesttingSolution));
+            ///
+            Dev_Component.ComuPCLink mPC1Test_Sfit = new Dev_Component.ComuPCLink(Dev_AppMachine.StaticName.T_SFIT_NO01_NO04);
+            ///
+            Dev_Component.ComuPCLink mPC2Test_Sfit = new Dev_Component.ComuPCLink(Dev_AppMachine.StaticName.T_SFIT_NO05_NO08);
+            ///
+            Dev_Component.ComuPCLink mPC3Test_Angin = new Dev_Component.ComuPCLink(Dev_AppMachine.StaticName.T_ANGIN_NO01_NO13);
+            ///
+            Dev_Component.ComuPCLink mPC4Test_WD = new Dev_Component.ComuPCLink(Dev_AppMachine.StaticName.T_WD_NO01);
+            ///
+            mAllTesterSys.Add(mPC1Test_Sfit);
+            ///
+            mAllTesterSys.Add(mPC2Test_Sfit);
+            ///
+            mAllTesterSys.Add(mPC3Test_Angin);
+            ///
+            mAllTesterSys.Add(mPC4Test_WD);       
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="smDef"></param>
+        private static void CreateAllStateMachineContriller(CompFactory smDef)
+        {
+            smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMHomeRes));
+            ///
+            smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMMain));
+            ///
+            smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMController));
+            ///
+            smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMPC1_SFIT));
+            ///
+            smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMPC2_SFIT));
+            ///
+            smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMPC3_AGING));
+            ///
+            smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMPC4_WD));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mAllStation"></param>
+        private static void CreateAllStationMachine(CompBase mAllStation)
+        {
+            //mAllStation.Add(new Dev_AppMachine.StaticName)
+            ///
+            mAllStation.Add(new Dev_AppStation.TesterStation.PC1_SFIT(Dev_AppMachine.StaticName.ST_PC1_SFIT));
+            ///
+            mAllStation.Add(new Dev_AppStation.TesterStation.PC2_SFIT(Dev_AppMachine.StaticName.ST_PC2_SFIT));
+            ///
+            mAllStation.Add(new Dev_AppStation.TesterStation.PC3_AGING(Dev_AppMachine.StaticName.ST_PC3_AGING));
+            ///
+            mAllStation.Add(new Dev_AppStation.TesterStation.PC5_WD(Dev_AppMachine.StaticName.ST_PC4_WD));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
         private Display.Production.UserProduction mUserProductionDisplay = null;
         /// <summary>
         /// 
@@ -112,9 +182,13 @@ namespace B2229_AT_FuncCheck
             tabAllSetup.Controls.Add(new Display.Setup.UserSetup());
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         private SMStateMachine mSMHomeRes = null;
-        ///
+        /// <summary>
+        /// 
+        /// </summary>
         private SMStateMachine mSMMain = null;
         /// <summary>
         /// 

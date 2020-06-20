@@ -15,33 +15,56 @@ namespace B2229_AT_FuncCheck.Dev_AppMachine
         internal const string AllStation = "AllStation";
         ///
         internal const string AllStateMachine = "AllStateMachine";
+        ///
+        internal const string AllTesttingSolution = "AllTesterSolution";
+
+        #region Station static State Machine name
         /// <summary>
         /// 
         /// </summary>
-        internal const string SMHomeRes = "SMHomeRes";
+        internal const string SMHomeRes = "SM_HomeRes";
         ///
-        internal const string SMMain = "SMMain";
+        internal const string SMMain = "SM_Main";
+        /// <summary>
+        /// 
+        /// </summary>
+        internal const string SMController = "SM_Controller";
         ///
-        internal const string SMPC1_SFIT = "SMPC1_SFIT";
+        internal const string SMPC1_SFIT = "SM_PC1_Sfit";
         ///
-        internal const string SMPC2_SFIT = "SMPC2_SFIT";
+        internal const string SMPC2_SFIT = "SM_PC2_Sfit";
         ///
-        internal const string SMPC3_AGING = "SMPC3_AGING";
+        internal const string SMPC3_AGING = "SM_PC3_Aging";
         ///
-        internal const string SMPC4_WD = "SMPC4_WD";
+        internal const string SMPC4_WD = "SM_PC4_WD";
+        ///
+         #endregion
         /// <summary>
         ///
         /// </summary>
-        #region Station static name
+        #region Station static Station Sequence Name
 
-        internal static string PC1_S_FIT = "PC1_S_FIT";
+        internal static string ST_PC1_SFIT = "ST_PC1_Sfit";
         ///
-        internal static string PC2_S_FIT = "PC2_S_FIT";
+        internal static string ST_PC2_SFIT = "ST_PC2_Sfit";
         ///
-        internal static string PC3_AGING = "PC3_AGING";
+        internal static string ST_PC3_AGING = "ST_PC3_Anging";
         ///
-        internal static string PC4_WD = "PC4_WD";
+        internal static string ST_PC4_WD = "ST_PC1_WD";
 
+        #endregion
+
+        #region Station Testting Solution name
+        /// <summary>
+        /// 
+        /// </summary>
+        internal static string T_SFIT_NO01_NO04 = "T_PC1_Sfit";
+        ///
+        internal static string T_SFIT_NO05_NO08 = "T_PC2_Sfit";
+        ///
+        internal static string T_ANGIN_NO01_NO13 = "T_PC3_Anging";
+        ///
+        internal static string T_WD_NO01 = "T_PC4_WD";
         #endregion
     }
 }

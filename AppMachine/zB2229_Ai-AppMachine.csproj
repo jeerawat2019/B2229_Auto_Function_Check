@@ -71,6 +71,7 @@
     <Compile Include="Dev-AppStation\TesterStation\PC2_SFIT.cs" />
     <Compile Include="Dev-AppStation\TesterStation\PC3_AGING.cs" />
     <Compile Include="Dev-AppStation\TesterStation\PC5_WD.cs" />
+    <Compile Include="Dev-Component\ComuPCLink.cs" />
     <Compile Include="Display\Production\UserProduction.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -160,10 +161,6 @@
     <ProjectReference Include="..\AppCore\X-Unit\X-Unit\X-Unit.csproj">
       <Project>{25560b73-8fe0-4357-8156-19704e247190}</Project>
       <Name>X-Unit</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Pc2Pc\Pc2Pc.csproj">
-      <Project>{806875b3-d1c5-4889-b56b-9e8c30a1303c}</Project>
-      <Name>Pc2Pc</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
