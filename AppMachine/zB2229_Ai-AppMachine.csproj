@@ -63,8 +63,38 @@
     <Compile Include="AppControlBase\AppUserControlBase.Designer.cs">
       <DependentUpon>AppUserControlBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="AppResult\AppConsignePart\AppPartJigColAngingView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppResult\AppConsignePart\AppPartJigColAngingView.Designer.cs">
+      <DependentUpon>AppPartJigColAngingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppResult\AppConsignePart\AppPartJigColSFitViewss.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppResult\AppConsignePart\AppPartJigColSFitViewss.Designer.cs">
+      <DependentUpon>AppPartJigColSFitViewss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppResult\AppConsignePart\AppPartJigColWDView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppResult\AppConsignePart\AppPartJigColWDView.Designer.cs">
+      <DependentUpon>AppPartJigColWDView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppResult\AppConsignePart\AppPartJigView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppResult\AppConsignePart\AppPartJigView.Designer.cs">
+      <DependentUpon>AppPartJigView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AppResult\Part.cs" />
+    <Compile Include="AppResult\PartCDPlayerView.cs" />
+    <Compile Include="AppResult\PartResultBase.cs" />
     <Compile Include="Dev-AppMachine\Machine.cs" />
     <Compile Include="Dev-AppMachine\StaticName.cs" />
+    <Compile Include="Dev-AppStation\Controller\iError.cs" />
+    <Compile Include="Dev-AppStation\Controller\PLC_Base.cs" />
+    <Compile Include="Dev-AppStation\Controller\PLC_Qcpu.cs" />
     <Compile Include="Dev-AppStation\IStation.cs" />
     <Compile Include="Dev-AppStation\StationBase.cs" />
     <Compile Include="Dev-AppStation\TesterStation\PC1_SFIT.cs" />
@@ -72,6 +102,8 @@
     <Compile Include="Dev-AppStation\TesterStation\PC3_AGING.cs" />
     <Compile Include="Dev-AppStation\TesterStation\PC5_WD.cs" />
     <Compile Include="Dev-Component\ComuPCLink.cs" />
+    <Compile Include="Dev-DataLog\DataBase.cs" />
+    <Compile Include="Dev-DataLog\DataManager.cs" />
     <Compile Include="Display\Production\UserProduction.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,6 +129,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AppControlBase\AppUserControlBase.resx">
       <DependentUpon>AppUserControlBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppResult\AppConsignePart\AppPartJigColAngingView.resx">
+      <DependentUpon>AppPartJigColAngingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppResult\AppConsignePart\AppPartJigColSFitViewss.resx">
+      <DependentUpon>AppPartJigColSFitViewss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppResult\AppConsignePart\AppPartJigColWDView.resx">
+      <DependentUpon>AppPartJigColWDView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AppResult\AppConsignePart\AppPartJigView.resx">
+      <DependentUpon>AppPartJigView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Display\Production\UserProduction.resx">
       <DependentUpon>UserProduction.cs</DependentUpon>
@@ -145,6 +189,10 @@
     <ProjectReference Include="..\AppComponent\Communications\TCPIP\TCPIP.csproj">
       <Project>{393ca60a-1633-4a23-801f-fbff21866282}</Project>
       <Name>TCPIP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AppComponent\PC-Link\Misubishi\PLCMisubishi.csproj">
+      <Project>{ad683b05-9765-4386-a8eb-d854ee1401dd}</Project>
+      <Name>PLCMisubishi</Name>
     </ProjectReference>
     <ProjectReference Include="..\AppComponent\SM-Flow\SMFlowChart\SMFlowChart.csproj">
       <Project>{6854fec3-1aae-42b8-a534-5b5985b0cc6e}</Project>

@@ -72,6 +72,12 @@
     <Compile Include="ControlElement\CtrTextbox.Designer.cs">
       <DependentUpon>CtrTextbox.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlElement\LabelCtl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlElement\LabelCtl.Designer.cs">
+      <DependentUpon>LabelCtl.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlElement\MPIDCtl.cs">
       <SubType>UserControl</SubType>
     </Compile>

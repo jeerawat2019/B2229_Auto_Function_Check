@@ -18,38 +18,43 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
 {
     public class StationBase : CompBase,IStation
     {
-        public enum JigStatus
+        int msec = 35;
+        public enum SetCmdSend
         {
-            Empty,      //Wait load part jig
-            Process,    //Runing Process
-            Finnish     //Process Finnish wait work load out
+            NONE,
+            START,
+            STATUS,
+            ERROR
         }
-        public enum JigProcess
-        {
-            None,
-            Start,
-            Stop
-        }
+
         [XmlIgnore]
-        public JigProcess JigControlProcess
+        public SetCmdSend CmdSetProcess
         {
             [StateMachineEnabled]
-            get { return GetPropValue(() => JigControlProcess, JigProcess.None); }
+            get 
+            {
+                X_CoreS.Delay(msec);
+                return GetPropValue(() => CmdSetProcess, SetCmdSend.NONE); 
+            }
             [StateMachineEnabled]
-            set { SetPropValue(() => JigControlProcess, value); }
+            set { SetPropValue(() => CmdSetProcess, value); }
         }
         /// <summary>
         /// 
         /// </summary>
-        //[Browsable(true)]
-        //[Category("Station")]
+        [Browsable(true)]
+        [Category("Station")]
         [XmlIgnore]
-        public string JigData2Dcode 
+        public string Data2Dcode
         {
             [StateMachineEnabled]
-            get { return GetPropValue(() => JigData2Dcode, "JEERAWATPRECHANURAK"); }
+            get 
+            {
+                X_CoreS.Delay(msec);
+                return GetPropValue(() => Data2Dcode, "JEERAWATPRECHANURAK");
+            }
             [StateMachineEnabled]
-            set { SetPropValue(() => JigData2Dcode, value); }
+            set { SetPropValue(() => Data2Dcode, value); }
         }
 
         //[Browsable(true)]
@@ -64,20 +69,46 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
         //}
         //[Browsable(true)]
         //[Category("Station")]
+        [Browsable(true)]
+        [Category("Station")]
         [XmlIgnore]
-        public Dictionary<string,string> IsStartProcess
+        public virtual bool IsStartProcess
         {
             [StateMachineEnabled]
-            get { return GetPropValue(() => IsStartProcess, new Dictionary<string, string>()
+            get 
             {
-                {"1","STOP" },
-                {"2","STOP" },
-                {"3","STOP" },
-                {"4","STOP" },
-            });}
+                X_CoreS.Delay(msec);
+                return GetPropValue(() => IsStartProcess, false); 
+            }
+            
+            [StateMachineEnabled]
+            set { SetPropValue(() => IsStartProcess, value); }
+        }
+        [Browsable(true)]
+        [Category("Station")]
+        [XmlIgnore]
+        public virtual bool IsTestting
+        {
+            [StateMachineEnabled]
+            get 
+            {
+                X_CoreS.Delay(msec);
+                return GetPropValue(() => IsStartProcess, false); 
+            }
 
             [StateMachineEnabled]
             set { SetPropValue(() => IsStartProcess, value); }
+        }
+        [Browsable(true)]
+        [Category("Station")]
+        [XmlIgnore]
+        public virtual bool IsTestFinnish
+        {
+            [StateMachineEnabled]
+            get {
+                X_CoreS.Delay(msec);
+                return GetPropValue(() => IsStartProcess, false); 
+            }
         }
         //[Browsable(true)]
         //[Category("Station")]
@@ -85,33 +116,56 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
         public string StationID
         {
             [StateMachineEnabled]
-            get { return GetPropValue(() => StationID, "1"); }
+            get 
+            {
+                X_CoreS.Delay(msec);
+                return GetPropValue(() => StationID, "1"); 
+            }
             [StateMachineEnabled]
             set { SetPropValue(() => StationID, value); }
         }
+        [Browsable(true)]
+        [Category("Station")]
         [XmlIgnore]
-        public int EndCountJig
+        public int EndStationIndex
         {
             [StateMachineEnabled]
-            get { return GetPropValue(() => EndCountJig, 0); }
+            get 
+            {
+                X_CoreS.Delay(msec);
+                return GetPropValue(() => EndStationIndex,0); 
+            }
             [StateMachineEnabled]
-            set { SetPropValue(() => EndCountJig, value); }
+            set { SetPropValue(() => EndStationIndex, value); }
         }
+        [Browsable(true)]
+        [Category("Station")]
         [XmlIgnore]
-        public int JigCounter
+        public int StationIndex
         {
             [StateMachineEnabled]
-            get { return GetPropValue(() => JigCounter, 0); }
+            get 
+            {
+                X_CoreS.Delay(msec);
+                return GetPropValue(() => StationIndex, 0); 
+            }
             [StateMachineEnabled]
-            set { SetPropValue(() => JigCounter, value); }
+            set { SetPropValue(() => StationIndex, value); }
         }
+
+        [Browsable(true)]
+        [Category("Station")]
         [XmlIgnore]
-        public bool IsEndJigCount
+        public bool IsEndStationIndex
         {
             [StateMachineEnabled]
-            get { return GetPropValue(() => IsEndJigCount, false); }
+            get 
+            {
+                X_CoreS.Delay(msec);
+                return GetPropValue(() => IsEndStationIndex, false); 
+            }
             [StateMachineEnabled]
-            set { SetPropValue(() => IsEndJigCount, value); }
+            set { SetPropValue(() => IsEndStationIndex, value); }
         }
         [Browsable(true)]
         [Category("Station")]
@@ -119,21 +173,42 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
         public int JigNumber
         {
             [StateMachineEnabled]
-            get { return GetPropValue(() => JigNumber, 1); }
+            get 
+            {
+                X_CoreS.Delay(msec);
+                return GetPropValue(() => JigNumber, 1); 
+            }
             [StateMachineEnabled]
             set { SetPropValue(() => JigNumber, value); }
         }
         [Browsable(true)]
         [Category("Station")]
         [XmlIgnore]
-        public string JigFormateCmd
+        public string SetFormate
         {
             [StateMachineEnabled]
-            get { return GetPropValue(() => JigFormateCmd); }
+            get 
+            {
+                X_CoreS.Delay(msec);
+                return GetPropValue(() => SetFormate);
+            }
             [StateMachineEnabled]
-            set { SetPropValue(() => JigFormateCmd, value); }
+            set { SetPropValue(() => SetFormate, value); }
         }
-       
+        [Browsable(true)]
+        [Category("Station")]
+        [XmlIgnore]
+        public bool PartResult
+        {
+            [StateMachineEnabled]
+            get 
+            {
+                X_CoreS.Delay(msec);
+                return GetPropValue(() => PartResult); 
+            }
+            [StateMachineEnabled]
+            set { SetPropValue(() => PartResult, value); }
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -162,9 +237,11 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
         public virtual void InCrementJig()
         {
             ///
-            this.JigCounter += 1;
+            this.StationIndex += 1;
             ///
-            this.IsEndJigCount = (this.JigCounter >= this.EndCountJig) ? true : false;
+            this.JigNumber = this.StationIndex;
+            ///
+            this.IsEndStationIndex = (this.StationIndex >= this.EndStationIndex) ? true : false;
 
         }
         /// <summary>
@@ -173,44 +250,50 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
         [StateMachineEnabled]
         public virtual void StationInitialize()
         {
-
+            this.JigNumber = 1;
+            this.StationIndex = 0;
         }
         /// <summary>
         /// 
         /// </summary>
         [StateMachineEnabled]
-        public virtual void ClearStation()
+        public virtual void StationReset()
         {
-            this.JigData2Dcode = null;
-            this.JigFormateCmd = null;
+            this.Data2Dcode = null;
+            this.SetFormate = null;
             this.JigNumber = 0;
+            this.StationIndex = 0;
         }
         /// <summary>
         /// 
         /// </summary>
         [StateMachineEnabled]
-        public virtual void SetStartTestJig()
+        protected virtual void SetCmdTestJig(string setProcess)
         {
             var cmd = new JigCommand();
             ///
             try
             {
+                if(string.IsNullOrEmpty(setProcess))
+                    ///
+                    throw new X_CoreExceptionError($"Can't is data");
+
                 if (StationID == null || !X_Core.X_CoreS.IsNumber(this.JigNumber.ToString()))
                     ///
                     throw new X_CoreExceptionError($"Can't is data numeric");
                 ///
-                else if (string.IsNullOrEmpty(this.JigData2Dcode) || (this.JigData2Dcode.Length < 20))
-                    ///
-                    throw new X_CoreExceptionError($"Input parameter jig2DCode is null");
+                //else if (string.IsNullOrEmpty(this.JigData2Dcode) || (this.JigData2Dcode.Length < 20))
+                //    ///
+                //    throw new X_CoreExceptionError($"Input parameter jig2DCode is null");
                 ///
                 else
                 {
                     cmd.CmdSend["PCSation"] = this.StationID;
                     cmd.CmdSend["JigNo"] = this.JigNumber.ToString();
-                    cmd.CmdSend["Jig2DCode"] = this.JigData2Dcode.ToUpper();
-                    cmd.CmdSend["JigProcess"] = "START";
+                    cmd.CmdSend["Jig2DCode"] = this.Data2Dcode.ToUpper();
+                    cmd.CmdSend["JigProcess"] = setProcess;
                     ///
-                    JigFormateCmd = ConvertToFormat(cmd);
+                    SetFormate = ConvertToFormat(cmd);
                     ///
                 }
 
@@ -223,10 +306,62 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
         /// <summary>
         /// 
         /// </summary>
+        /// <param name="cmdformate"></param>
+        protected virtual bool ChangFormateDataRecive(string cmdformate)
+        {
+            var cmd = new JigCommand();
+            ///
+            try
+            {
+                if (string.IsNullOrEmpty(cmdformate)) throw new X_CoreExceptionError($"Can't is data");
+                ///
+                string[] Word = cmdformate.Split(',');
+                ///
+                if (StationID == null || !X_Core.X_CoreS.IsNumber(this.JigNumber.ToString()))
+                    ///
+                    throw new X_CoreExceptionError($"Can't is data numeric");
+                ///
+                else if (Word.Length != 6)
+                    ///
+                    throw new X_CoreExceptionError($"Can't is data");
+                ///
+                else
+                {
+                    int i = 0;
+                    foreach (string key in cmd.CmdRecive.Keys.ToList())
+                        cmd.CmdRecive[key] = Word[i++];
+                    ///
+                  return cmd.CmdRecive.Where(x =>
+                    {
+                        if (x.Key.Contains("JigResult"))
+                        {
+                            if (x.Value == null)
+                                return false;
+                            return (x.Value == "PASS") ? true : false;
+                        }
+                        else
+                            return false;
+                    }).Any();
+                    ///
+                 
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new X_CoreExceptionPopup(ex, $"String Format fail'{this.Nickname}'");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="cmd"></param>
         /// <returns></returns>
-        private string ConvertToFormat(JigCommand cmd)
+        protected string ConvertToFormat(JigCommand cmd)
         {
+            if (cmd.CmdSend == null) return null;
+            //this._aoiBoatheader.ForEach(x => csv.Append(string.Format("{0},", x)));
             string str = null;
             ///
             cmd.CmdSend.All(x =>

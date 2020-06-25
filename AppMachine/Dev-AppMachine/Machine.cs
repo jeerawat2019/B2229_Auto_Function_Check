@@ -1,8 +1,11 @@
-﻿using System;
+﻿using B2229_AT_FuncCheck.AppResult.AppConsignePart;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 using X_Core;
 using X_Core.CompElement;
@@ -12,8 +15,49 @@ namespace B2229_AT_FuncCheck.Dev_AppMachine
 {
     public class Machine : CompBase
     {
-        public Machine() { }
-        public Machine(string name) : base(name) { }
+
+
+        [XmlIgnore]
+        [Category("Part View"), Browsable(false), Description("Case Push Switch Reject Part")]
+        public AppPartJigColSFitViewss PartJigColSfit1
+        {
+            //[StateMachineEnabled]
+            get { return GetPropValue(() => PartJigColSfit1); }
+            //[StateMachineEnabled]
+            set { SetPropValue(() => PartJigColSfit1, value); }
+        }
+        [XmlIgnore]
+        [Category("Part View"), Browsable(false), Description("Case Push Switch Reject Part")]
+        public AppPartJigColSFitViewss PartJigColSfit2
+        {
+            //[StateMachineEnabled]
+            get { return GetPropValue(() => PartJigColSfit2); }
+            //[StateMachineEnabled]
+            set { SetPropValue(() => PartJigColSfit2, value); }
+        }
+        [XmlIgnore]
+        [Category("Part View"), Browsable(false), Description("Case Push Switch Reject Part")]
+        public AppPartJigColAngingView PartJigColAngingView
+        {
+            //[StateMachineEnabled]
+            get { return GetPropValue(() => PartJigColAngingView); }
+            //[StateMachineEnabled]
+            set { SetPropValue(() => PartJigColAngingView, value); }
+        }
+        [XmlIgnore]
+        [Category("Part View"), Browsable(false), Description("Case Push Switch Reject Part")]
+        public AppPartJigColWDView PartJigColWDView
+        {
+            //[StateMachineEnabled]
+            get { return GetPropValue(() => PartJigColWDView); }
+            //[StateMachineEnabled]
+            set { SetPropValue(() => PartJigColWDView, value); }
+        }
+        [XmlIgnore]
+        public static Machine This = null;
+
+        public Machine() { This = this; }
+        public Machine(string name) : base(name) { This = this; }
         public override void Initialize()
         {
             base.Initialize();

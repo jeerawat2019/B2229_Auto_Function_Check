@@ -17,7 +17,7 @@ namespace X_Core.ControlElement
         {
             if (disposing)
             {
-                CompBase.OnChangedName -= new CompBase.NameChangedEventHandler(OnChangedCompName);
+                //PLC_Misubishi.OnChangedName -= new PLC_Misubishi.NameChangedEventHandler(OnChangedCompName);
                 if (components != null)
                 {
                     components.Dispose();

@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 
 
 
-namespace MCore.Comp.Communications
+namespace AiComp.ConnectType.Commu
 {
     public class TCPIP : CommuBase
     {
