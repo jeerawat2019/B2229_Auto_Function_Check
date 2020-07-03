@@ -356,10 +356,10 @@ namespace {0}
         /// <returns></returns>
         public CompBase GetComponent(string ID)
         {
-            if (string.IsNullOrEmpty(ID))
-            {
-                return null;
-            }
+            //if (string.IsNullOrEmpty(ID))
+            //{
+            //    return null;
+            //}
             lock (_dictComponents)
             {
                 if (_dictComponents.ContainsKey(ID))
@@ -389,10 +389,10 @@ namespace {0}
         /// <returns></returns>
         public CompBase[] GetComponents(string ID)
         {
-            if (string.IsNullOrEmpty(ID))
-            {
-                return null;
-            }
+            //if (string.IsNullOrEmpty(ID))
+            //{
+            //    return null;
+            //}
             lock (_dictComponents)
             {
                 if (_dictComponents.ContainsKey(ID))

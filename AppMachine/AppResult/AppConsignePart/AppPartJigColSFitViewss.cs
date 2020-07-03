@@ -10,21 +10,52 @@ using System.Windows.Forms;
 
 using AppMachine.AppControlBase;
 using System.Xml.Serialization;
+using X_Core;
+using X_Core.CompElement;
 
 namespace B2229_AT_FuncCheck.AppResult.AppConsignePart
 {
-    public partial class AppPartJigColSFitViewss : AppUserControlBase
+    public partial class AppPartJigColSFitViewss : AppUserControlBase 
     {
         private AppPartJigView[] mPartJigView = null;
 
         [XmlIgnore]
         public AppPartJigView[] PartJigViews
         {
-            get
-            {
+            get 
+            { 
+                Initializing();
                 return mPartJigView;
             }
+            set { mPartJigView = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public int MemControlPart
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public string MemBinProcess
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public int MemRang
+        {
+            get;
+            set;
+        } = 10;
         /// <summary>
         /// 
         /// </summary>
@@ -37,6 +68,12 @@ namespace B2229_AT_FuncCheck.AppResult.AppConsignePart
         /// </summary>
         protected override void Initializing()
         {
+
+            AddPart();
+            //appPartJigView1.CDPlayer.PartStatus = true;
+        }
+        private void AddPart()
+        {
             mPartJigView = new AppPartJigView[]
             {
                 appPartJigView1,
@@ -45,8 +82,6 @@ namespace B2229_AT_FuncCheck.AppResult.AppConsignePart
                 appPartJigView4
 
             };
-           
-            //appPartJigView1.CDPlayer.PartStatus = true;
         }
     }
 }

@@ -71,6 +71,7 @@
             this.appPartJigView1.Name = "appPartJigView1";
             this.appPartJigView1.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView1.TabIndex = 1;
+            this.appPartJigView1.Tag = "0";
             // 
             // label1
             // 

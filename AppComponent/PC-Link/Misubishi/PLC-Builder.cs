@@ -14,9 +14,9 @@ namespace AiComp.Misubishis.Divice.PLC
     {
         public PLC_Builder() { }
         public PLC_Builder(string name) : base(name) { }
-        public override void Initialization()
+        public override void Initialize()
         {
-            base.Initialization();
+            base.Initialize();
         }
 
         public override void InitializeIDReferences()

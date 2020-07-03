@@ -1,4 +1,5 @@
-﻿using B2229_AT_FuncCheck.AppResult.AppConsignePart;
+﻿using AppMachine.AppControlBase;
+using B2229_AT_FuncCheck.AppResult.AppConsignePart;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -52,6 +53,15 @@ namespace B2229_AT_FuncCheck.Dev_AppMachine
             get { return GetPropValue(() => PartJigColWDView); }
             //[StateMachineEnabled]
             set { SetPropValue(() => PartJigColWDView, value); }
+        }
+        [XmlIgnore]
+        [Category("Part View"), Browsable(false), Description("Case Push Switch Reject Part")]
+        public Dictionary<string, AppUserControlBase> UserControlPart
+        {
+            //[StateMachineEnabled]
+            get { return GetPropValue(() => UserControlPart); }
+            //[StateMachineEnabled]
+            set { SetPropValue(() => UserControlPart, value); }
         }
         [XmlIgnore]
         public static Machine This = null;

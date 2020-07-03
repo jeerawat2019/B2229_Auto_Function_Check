@@ -10,11 +10,11 @@ using System.Windows.Forms;
 using ActSupportMsgLib;
 using ActUtlTypeLib;
 using AiComp.ConnectType.Commu;
-using X_Core;
+using X_Core.CompElement;
 
-namespace AiComp.Misubishis.Divice.PLC
+namespace B2229_AT_FuncCheck.Dev_Component//AiComp.Misubishis.Divice.PLC
 {
-    public class PLC_Commu : PLC_Base
+    public class PLC_Commu : CompBase//PLC_Base
     {
         /// <summary>
         /// Part Id
@@ -37,7 +37,7 @@ namespace AiComp.Misubishis.Divice.PLC
         /// Part Id
         /// </summary>
         [Category("Communication"), Browsable(true), Description("iStstionNumber")]
-        public int StstionNumber
+        public int iStstionNumber
         {
             get;
             set;
@@ -50,26 +50,27 @@ namespace AiComp.Misubishis.Divice.PLC
         {
             get
             {
-                if (string.IsNullOrEmpty(this.IPAddress))
+                //if (string.IsNullOrEmpty(this.IPAddress))
                     return false;// throw new PLC_Exception("PLC IP Address found!");
 
                 mPing = new Ping();
                 ///
-                PingReply pingReply = mPing.Send(this.IPAddress, 10000);
+                //PingReply pingReply = mPing.Send(this.IPAddress, 10000);
                 ///
-                Status = pingReply.Status.ToString() != "Success" ? Error.CommuFail : Error.Normal;
+                //Status = pingReply.Status.ToString() != "Success" ? Error.CommuFail : Error.Normal;
                 ///
-                return (Status == Error.Normal) ? true : false;
+                //return (Status == Error.Normal) ? true : false;
 
             }
         }
-        public PLC_Commu() { }
         public PLC_Commu(string name) : base(name) { }
         public override void Initialize()
         {
             base.Initialize();
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public override void InitializeIDReferences()
         {
             base.InitializeIDReferences();
@@ -87,6 +88,7 @@ namespace AiComp.Misubishis.Divice.PLC
             try
             {
 
+
                 if (!this.IsNetworkConnect)
                 {
                     throw new PLC_Exception("");
@@ -96,7 +98,7 @@ namespace AiComp.Misubishis.Divice.PLC
                                      //Error Handler
                                      //Set the value of 'LogicalStationNumber' to the property.
                                      //Check the 'LogicalStationNumber'.(If succeeded, the value is gotten.)
-                if (GetIntValue(this.StstionNumber.ToString(), out iLogicalStationNumber) != true)
+                if (GetIntValue(this.iStstionNumber.ToString(), out iLogicalStationNumber) != true)
                 {
                     //If failed, this process is end.			
                     return -1;
@@ -113,11 +115,10 @@ namespace AiComp.Misubishis.Divice.PLC
                 return iReturnCode;
             }
             //Exception processing			
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                X_CoreS.LogError(ex, $"TimeOut waiting for read port of'{this.Nickname}'");
-                //MessageBox.Show(exception.Message, MethodBase.GetCurrentMethod().Name,
-                //                  MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exception.Message, MethodBase.GetCurrentMethod().Name,
+                                  MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
             }
 
@@ -132,11 +133,10 @@ namespace AiComp.Misubishis.Divice.PLC
             }
 
             //When the value is nothing or out of the range, the exception is processed.
-            catch (Exception ex)
+            catch (Exception exExcepion)
             {
-                X_CoreS.LogError(ex, $"TimeOut waiting for read port of'{this.Nickname}'");
-                //MessageBox.Show(exExcepion.Message,
-                //                  MethodBase.GetCurrentMethod().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(exExcepion.Message,
+                                  MethodBase.GetCurrentMethod().Name, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 

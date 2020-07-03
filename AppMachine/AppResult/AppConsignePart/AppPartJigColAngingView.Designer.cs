@@ -103,6 +103,7 @@
             this.appPartJigView4.Name = "appPartJigView4";
             this.appPartJigView4.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView4.TabIndex = 0;
+            this.appPartJigView4.Tag = "3";
             // 
             // appPartJigView3
             // 
@@ -112,6 +113,7 @@
             this.appPartJigView3.Name = "appPartJigView3";
             this.appPartJigView3.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView3.TabIndex = 0;
+            this.appPartJigView3.Tag = "2";
             // 
             // appPartJigView2
             // 
@@ -121,6 +123,7 @@
             this.appPartJigView2.Name = "appPartJigView2";
             this.appPartJigView2.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView2.TabIndex = 0;
+            this.appPartJigView2.Tag = "1";
             // 
             // appPartJigView1
             // 
@@ -151,6 +154,7 @@
             this.appPartJigView8.Name = "appPartJigView8";
             this.appPartJigView8.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView8.TabIndex = 4;
+            this.appPartJigView8.Tag = "7";
             // 
             // appPartJigView7
             // 
@@ -160,6 +164,7 @@
             this.appPartJigView7.Name = "appPartJigView7";
             this.appPartJigView7.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView7.TabIndex = 3;
+            this.appPartJigView7.Tag = "6";
             // 
             // appPartJigView6
             // 
@@ -169,6 +174,7 @@
             this.appPartJigView6.Name = "appPartJigView6";
             this.appPartJigView6.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView6.TabIndex = 2;
+            this.appPartJigView6.Tag = "5";
             // 
             // appPartJigView5
             // 
@@ -178,6 +184,7 @@
             this.appPartJigView5.Name = "appPartJigView5";
             this.appPartJigView5.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView5.TabIndex = 1;
+            this.appPartJigView5.Tag = "4";
             // 
             // panel3
             // 
@@ -199,6 +206,7 @@
             this.appPartJigView12.Name = "appPartJigView12";
             this.appPartJigView12.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView12.TabIndex = 4;
+            this.appPartJigView12.Tag = "11";
             // 
             // appPartJigView11
             // 
@@ -208,6 +216,7 @@
             this.appPartJigView11.Name = "appPartJigView11";
             this.appPartJigView11.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView11.TabIndex = 3;
+            this.appPartJigView11.Tag = "10";
             // 
             // appPartJigView10
             // 
@@ -217,6 +226,7 @@
             this.appPartJigView10.Name = "appPartJigView10";
             this.appPartJigView10.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView10.TabIndex = 2;
+            this.appPartJigView10.Tag = "9";
             // 
             // appPartJigView9
             // 
@@ -226,6 +236,7 @@
             this.appPartJigView9.Name = "appPartJigView9";
             this.appPartJigView9.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView9.TabIndex = 1;
+            this.appPartJigView9.Tag = "8";
             // 
             // panel4
             // 
@@ -244,6 +255,7 @@
             this.appPartJigView13.Name = "appPartJigView13";
             this.appPartJigView13.Size = new System.Drawing.Size(52, 72);
             this.appPartJigView13.TabIndex = 1;
+            this.appPartJigView13.Tag = "12";
             // 
             // label1
             // 

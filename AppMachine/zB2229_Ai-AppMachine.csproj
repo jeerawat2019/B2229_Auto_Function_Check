@@ -92,9 +92,9 @@
     <Compile Include="AppResult\PartResultBase.cs" />
     <Compile Include="Dev-AppMachine\Machine.cs" />
     <Compile Include="Dev-AppMachine\StaticName.cs" />
-    <Compile Include="Dev-AppStation\Controller\iError.cs" />
-    <Compile Include="Dev-AppStation\Controller\PLC_Base.cs" />
-    <Compile Include="Dev-AppStation\Controller\PLC_Qcpu.cs" />
+    <Compile Include="Dev-Component\iError.cs" />
+    <Compile Include="Dev-Component\ComuPLCLink.cs" />
+    <Compile Include="Dev-AppStation\Controller\PLC_System.cs" />
     <Compile Include="Dev-AppStation\IStation.cs" />
     <Compile Include="Dev-AppStation\StationBase.cs" />
     <Compile Include="Dev-AppStation\TesterStation\PC1_SFIT.cs" />

@@ -12,7 +12,7 @@ namespace AiComp.ConnectType.Commu
             /// <summary>RS232</summary>
             RS232,
             /// <summary>RS232</summary>
-            TCP_QCPU
+            TCPIP
             ///
         }
     }

@@ -22,9 +22,38 @@ namespace B2229_AT_FuncCheck.AppResult.AppConsignePart
         {
             get
             {
+                Initializing();
                 return mPartJigView;
             }
+            set { mPartJigView = value; }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public string MemBinProcess
+        {
+            get;
+            set;
+        } = null;
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public int MemControlPart
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public int MemRang
+        {
+            get;
+            set;
+        } = 10;
         /// <summary>
         /// 
         /// </summary>
@@ -37,12 +66,16 @@ namespace B2229_AT_FuncCheck.AppResult.AppConsignePart
         /// </summary>
         protected override void Initializing()
         {
+            AddPart();
+            //appPartJigView1.CDPlayer.PartStatus = true;
+        }
+        private void AddPart()
+        {
             mPartJigView = new AppPartJigView[]
             {
                 appPartJigView1,
 
             };
-            //appPartJigView1.CDPlayer.PartStatus = true;
         }
     }
 }

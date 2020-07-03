@@ -7,8 +7,8 @@
     <ProjectGuid>{AD683B05-9765-4386-A8EB-D854EE1401DD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Misubishis</RootNamespace>
-    <AssemblyName>PLC_Misubishi</AssemblyName>
+    <RootNamespace>AiComp.Misubishis.Divice</RootNamespace>
+    <AssemblyName>AiComp.Misubishis.Divice.PLC</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -71,7 +71,7 @@
       <Name>X-Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Communications\ConnectBase\CommuSystem.csproj">
-      <Project>{1FA80E64-1394-42F1-88E6-A4ADF533F49E}</Project>
+      <Project>{1fa80e64-1394-42f1-88e6-a4adf533f49e}</Project>
       <Name>CommuSystem</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Communications\TCPIP\TCPIP.csproj">

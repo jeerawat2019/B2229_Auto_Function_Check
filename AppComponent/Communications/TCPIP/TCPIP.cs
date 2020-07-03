@@ -6,12 +6,12 @@ using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
-
+using X_Core.CompElement;
 
 
 namespace AiComp.ConnectType.Commu
 {
-    public class TCPIP : CommuBase
+    public class TCPIP : CompBase //CommuBase
     {
 
         #region private Data
@@ -29,7 +29,7 @@ namespace AiComp.ConnectType.Commu
         [Category("TCPIP")]
         public string IPAddress
         {
-            get { return GetPropValue(() => IPAddress); }
+            get { return GetPropValue(() => IPAddress, "192.168.1.10"); }
             set { SetPropValue(() => IPAddress, value); }
         }
 
@@ -37,13 +37,13 @@ namespace AiComp.ConnectType.Commu
         /// Get the local PI address
         /// </summary>
         /// <returns></returns>
-        [Browsable(true)]
-        [Category("TCPIP")]
-        public string LocalIPAddress
-        {
-            get { return GetPropValue(() => LocalIPAddress, "192.168.1.10"); }
-            set { SetPropValue(() => LocalIPAddress, value); }
-        }
+        //[Browsable(true)]
+        //[Category("TCPIP")]
+        //public string LocalIPAddress
+        //{
+        //    get { return GetPropValue(() => LocalIPAddress, "192.168.1.10"); }
+        //    set { SetPropValue(() => LocalIPAddress, value); }
+        //}
 
         /// <summary>
         /// Get the Comm Port

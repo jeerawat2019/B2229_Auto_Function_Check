@@ -41,7 +41,9 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
                 ///
                 bool result = (Dev_AppMachine.Machine.This.PartJigColSfit1.PartJigViews[this.StationIndex].CDPlayer.IsProcess 
                     == AppMachine.AppResult.Part.Process.Start) ? true : false;
-                if (result)
+                bool data2dcode = (string.IsNullOrEmpty(Dev_AppMachine.Machine.This.PartJigColSfit1.PartJigViews[this.StationIndex].CDPlayer.Data2DCode);
+                   
+                if (result && data2dcode)
                 {
                     Dev_AppMachine.Machine.This.PartJigColSfit1.PartJigViews[this.StationIndex].CDPlayer.IsProcess
                         = AppMachine.AppResult.Part.Process.Testting;

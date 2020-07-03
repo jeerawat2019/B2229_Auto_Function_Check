@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using AiComp.ConnectType.Commu;
 using X_Core;
+using X_Core.CompElement;
 
-namespace AiComp.Misubishis.Divice.PLC
+namespace B2229_AT_FuncCheck.Dev_Component//AiComp.Misubishis.Divice.PLC
 {
-    public class PLC_Base : TCPIP
+    public class PLC_Base : CompBase//: TCPIP
     {
 
         public enum Error
@@ -82,17 +83,32 @@ namespace AiComp.Misubishis.Divice.PLC
         /// Manual Creation Constructor
         /// </summary>
         /// <param name="name"></param>
-        public PLC_Base(string name):base(name)
+        public PLC_Base(string name)
         {
-           
+            Name = name;
         }
-        public override void Initialize()
+
+        /// <summary>
+        /// Manual Creation Constructor
+        /// </summary>
+        /// <param name="name"></param>
+        public PLC_Base(string name, string id)
         {
-            base.Initialize();
+            Id = id;
         }
-        public override void InitializeIDReferences()
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual void Initialization_Process()
         {
-            base.InitializeIDReferences();
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public virtual void Initialization()
+        {
+            Initialization_Process();
         }
     }
 }

@@ -17,6 +17,8 @@ namespace B2229_AT_FuncCheck.Dev_AppMachine
         internal const string AllStateMachine = "AllStateMachine";
         ///
         internal const string AllTesttingSolution = "AllTesterSolution";
+        ///
+        internal const string AllController = "AllController";
 
         #region Station static State Machine name
         /// <summary>
@@ -65,6 +67,15 @@ namespace B2229_AT_FuncCheck.Dev_AppMachine
         internal static string T_ANGIN_NO01_NO13 = "T_PC3_Anging";
         ///
         internal static string T_WD_NO01 = "T_PC4_WD";
+        #endregion
+
+        #region Station PLC Controller
+        /// <summary>
+        /// 
+        /// </summary>
+        internal static string PLC_TATTURN = "PLC_Patturn";
+        /// 
+        internal static string PLC_Q02CPU = "PLC_Q02Cpu";
         #endregion
     }
 }

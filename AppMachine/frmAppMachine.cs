@@ -14,6 +14,9 @@ using X_Core;
 using X_Core.Comp.SMLib;
 using X_Core.CompElement;
 using X_Core.ControlElement;
+using B2229_AT_FuncCheck.Dev_AppStation.Controller;
+using B2229_AT_FuncCheck.Dev_Component;
+using AiComp.ConnectType.Commu;
 
 namespace B2229_AT_FuncCheck
 {
@@ -61,6 +64,8 @@ namespace B2229_AT_FuncCheck
                 CreateAllStationMachine(mAllStation);
                 ///
                 CreateAllTesttingSolution(mMachineFactory);
+                ///
+                CreateController(mMachineFactory);
                 ///
                 #endregion
                 ///
@@ -110,6 +115,19 @@ namespace B2229_AT_FuncCheck
             }
         }
 
+        private void CreateController(CompFactory mMachineFactory)
+        {
+            
+            ///
+            CompFactory mAllTesterSys = mMachineFactory.Add(new CompBase(Dev_AppMachine.StaticName.AllController));
+            ///
+            Dev_Component.ComuPLCLink mPLC_Qcpu = new ComuPLCLink(Dev_AppMachine.StaticName.PLC_TATTURN);
+            ///
+            mAllTesterSys.Add(mPLC_Qcpu);
+            ///
+          
+        }
+
         private void CreateAllTesttingSolution(CompFactory mMachineFactory)
         {
             CompFactory mAllTesterSys = mMachineFactory.Add(new CompBase(Dev_AppMachine.StaticName.AllTesttingSolution));
@@ -122,13 +140,16 @@ namespace B2229_AT_FuncCheck
             ///
             Dev_Component.ComuPCLink mPC4Test_WD = new Dev_Component.ComuPCLink(Dev_AppMachine.StaticName.T_WD_NO01);
             ///
+
             mAllTesterSys.Add(mPC1Test_Sfit);
             ///
             mAllTesterSys.Add(mPC2Test_Sfit);
             ///
             mAllTesterSys.Add(mPC3Test_Angin);
             ///
-            mAllTesterSys.Add(mPC4Test_WD);       
+            mAllTesterSys.Add(mPC4Test_WD);
+            ///
+           
         }
         /// <summary>
         /// 
@@ -156,7 +177,8 @@ namespace B2229_AT_FuncCheck
         /// <param name="mAllStation"></param>
         private static void CreateAllStationMachine(CompBase mAllStation)
         {
-            //mAllStation.Add(new Dev_AppMachine.StaticName)
+            ///
+            mAllStation.Add(new Dev_AppStation.Controller.PLC_System(Dev_AppMachine.StaticName.PLC_Q02CPU));
             ///
             mAllStation.Add(new Dev_AppStation.TesterStation.PC1_SFIT(Dev_AppMachine.StaticName.ST_PC1_SFIT));
             ///

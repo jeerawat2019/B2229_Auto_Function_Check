@@ -30,8 +30,6 @@ namespace AppMachine.AppResult
             get { return GetPropValue(() => PartId); }
             set { SetPropValue(() => PartId, value); }
         }
-
-
         /// <summary>
         /// Part Index
         /// </summary>
@@ -42,6 +40,7 @@ namespace AppMachine.AppResult
             get { return GetPropValue(() => PartIndex); }
             set { SetPropValue(() => PartIndex, value); }
         }
+       
         /// <summary>
         /// Part Status
         /// </summary>

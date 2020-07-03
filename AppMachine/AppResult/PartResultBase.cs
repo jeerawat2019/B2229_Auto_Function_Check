@@ -42,5 +42,23 @@ namespace AppMachine.AppResult
             get { return GetPropValue(() => Data2DCode, ""); }
             set { SetPropValue(() => Data2DCode, value); }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public virtual int PartDataMemory
+        {
+            get { return GetPropValue(() => PartDataMemory, 0); }
+            set { SetPropValue(() => PartDataMemory, value); }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public virtual int MemRang
+        {
+            get { return GetPropValue(() => MemRang, 20); }
+            set { SetPropValue(() => MemRang, value); }
+        }
     }
 }

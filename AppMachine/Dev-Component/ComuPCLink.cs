@@ -105,7 +105,7 @@ namespace B2229_AT_FuncCheck.Dev_Component
                     ///
                     X_CoreS.LogError(ex, $"TimeOut waiting for read port of'{this.Nickname}'");
                     ///
-                    throw new X_CoreExceptionPopup(ex, $"TimOut waiting for read port of'{this.Nickname}'of command'{cmdSend}'");
+                    //throw new X_CoreExceptionPopup(ex, $"TimOut waiting for read port of'{this.Nickname}'of command'{cmdSend}'");
                 }
             }
             return null;
