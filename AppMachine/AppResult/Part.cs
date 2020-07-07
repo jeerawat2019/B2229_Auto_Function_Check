@@ -70,13 +70,13 @@ namespace AppMachine.AppResult
         {
             get
             {
-                var result = this.PartStatus == "OK" ? true : false;
+                var result = this.PartStatus == "PASS" ? true : false;
                 return result;
             }
 
             set
             {
-                var parser = value == true ? "OK" : "NG";
+                var parser = value == true ? "PASS" : "FAIL";
                 SetPropValue(() => PartStatus, parser);
             }
         }

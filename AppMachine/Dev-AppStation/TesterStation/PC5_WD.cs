@@ -24,6 +24,59 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
                 return false;
             }
         }
+        private string mCerrentResult = null;
+        [XmlIgnore]
+        public String CrrentResult
+        {
+            [StateMachineEnabled]
+            get
+            {
+                return mCerrentResult;
+            }
+        }
+        private List<string> mPartList = null;
+        [XmlIgnore]
+        public List<string> PartList
+        {
+            [StateMachineEnabled]
+            get
+            {
+                return mPartList;
+            }
+        }
+        [XmlIgnore]
+        public string CerrentResultSFit
+        {
+            get;
+            set;
+        }
+        [XmlIgnore]
+        public bool Has2DCode
+        {
+            [StateMachineEnabled]
+            get
+            {
+                string str2DCode = Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.Data2DCode;
+                ///
+                if (string.IsNullOrEmpty(str2DCode)) return false;
+                bool ststus = false;
+                CerrentResultSFit = mPartList.FirstOrDefault(x =>
+                {
+                    var dataarray = x.Split(',');
+                    ///
+                    string[] results = Array.FindAll(dataarray, s => s.Equals(str2DCode));
+                    if (results.Length == 0)
+                        return ststus = false;
+                    else
+                        return ststus = true;
+                });
+                ///
+                //DisatTachResultPart(data);
+                ///
+                return ststus;
+            }
+
+        }
         [XmlIgnore]
         public override bool IsStartProcess
         {
@@ -38,7 +91,9 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
                 ///
                 bool result = (Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.IsProcess
                     == AppMachine.AppResult.Part.Process.Start) ? true : false;
-                if (result)
+                //bool data2dcode = (string.IsNullOrEmpty(Dev_AppMachine.Machine.This.PartJigColSfit1.PartJigViews[this.StationIndex].CDPlayer.Data2DCode));
+
+                if (result && Has2DCode)
                 {
                     Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.IsProcess
                         = AppMachine.AppResult.Part.Process.Testting;
@@ -128,6 +183,49 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
             //{
             //    Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.IsProcess = AppMachine.AppResult.Part.Process.Finnish;
             //}
+        }
+        [StateMachineEnabled]
+        public void BuildCerrentResultPart()
+        {
+            var part = Dev_AppMachine.Machine.This.PartJigColAngingView.PartJigViews[this.StationIndex];
+            //if (mPartList.Count != 0)
+            //{
+            //Dev_AppMachine.Machine.This.PartJigColSfit1.PartJigViews.Select(x =>
+            //{
+            if (part.CDPlayer.IsProcess == AppMachine.AppResult.Part.Process.Finnish)
+            {
+                ///
+                mCerrentResult = (string.Format(@"{0},{1}",
+                    DateTime.Now.ToString("ddMMyyyy"),
+                    part.CDPlayer.Data2DCode,
+                    this.StationID,
+                    part.CDPlayer.PartId.ToString(),
+                    (part.CDPlayer.IsPass) ? "PASS" : "FAIL",
+                    DateTime.Now.ToString("ddMMyyyy")
+                    ));
+            }
+            //return true;
+            //});
+            //}
+        }
+        [StateMachineEnabled]
+        public void AddResultPart(string result)
+        {
+            lock (this)
+            {
+                if (mPartList == null) return;
+
+                mPartList.Add(result);
+            }
+        }
+        [StateMachineEnabled]
+        public void ClearPartResult()
+        {
+            Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.Data2DCode = "";
+            ///
+            Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.IsProcess = AppMachine.AppResult.Part.Process.Null;
+            ///
+            Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.PartStatus = "N/A";
         }
         /// <summary>
         /// 

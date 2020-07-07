@@ -67,6 +67,8 @@ namespace B2229_AT_FuncCheck
                 ///
                 CreateController(mMachineFactory);
                 ///
+                CreateLogManager(mMachineFactory);
+                ///
                 #endregion
                 ///
                 mMachineFactory.Add(mAllStation);
@@ -127,6 +129,18 @@ namespace B2229_AT_FuncCheck
             ///
           
         }
+        private void CreateLogManager(CompFactory mMachineFactory)
+        {
+
+            ///
+            CompFactory mAllTesterSys = mMachineFactory.Add(new CompBase(Dev_AppMachine.StaticName.AllLogging));
+            ///
+            Dev_DataLogs.LogsManager mLogsManager = new Dev_DataLogs.LogsManager(Dev_AppMachine.StaticName.DATA_LOGSMANAGER);
+            ///
+            mAllTesterSys.Add(mLogsManager);
+            ///
+
+        }
 
         private void CreateAllTesttingSolution(CompFactory mMachineFactory)
         {
@@ -170,6 +184,8 @@ namespace B2229_AT_FuncCheck
             smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMPC3_AGING));
             ///
             smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMPC4_WD));
+            ///
+            smDef.Add(new SMStateMachine(Dev_AppMachine.StaticName.SMDATALOGS));
         }
         /// <summary>
         /// 
@@ -187,6 +203,8 @@ namespace B2229_AT_FuncCheck
             mAllStation.Add(new Dev_AppStation.TesterStation.PC3_AGING(Dev_AppMachine.StaticName.ST_PC3_AGING));
             ///
             mAllStation.Add(new Dev_AppStation.TesterStation.PC5_WD(Dev_AppMachine.StaticName.ST_PC4_WD));
+            ///
+            mAllStation.Add(new Dev_AppStation.Data.LoggingResult(Dev_AppMachine.StaticName.DATA_LOGRESULT));
         }
         /// <summary>
         /// 

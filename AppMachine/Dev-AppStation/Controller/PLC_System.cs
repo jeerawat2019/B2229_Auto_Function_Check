@@ -178,7 +178,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Controller
                     //
                     if (part.CDPlayer.IsProcess == Part.Process.Start)
                     {
-                        //Update2DPart(part.CDPlayer);
+                        Update2DPart(part.CDPlayer);
                     }
                 }
                 ///
@@ -193,16 +193,18 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Controller
         {
             string mem2D = (cDPlayer.PartDataMemory + (cDPlayer.PartId * 20)).ToString();
             ///
-            List<string> data2DCode = new List<string>();
+            List<string> data2DCode = new List<string>() {""};
             ///
-            if( this.mComPLCLink.GetData2DCode(mem2D, out data2DCode) != SequenceError.Normal)
-            {
-                //Massage Error
-            }
-            else
-            {
+            data2DCode[0] = string.Format("Data2DCode id = {0}", cDPlayer.PartId);
+            ///
+            //if ( this.mComPLCLink.GetData2DCode(mem2D, out data2DCode) != SequenceError.Normal)
+            //{
+            //    //Massage Error
+            //}
+            //else
+            //{
                 cDPlayer.Data2DCode = data2DCode[0];
-            }
+            //}
         }
 
         /// <summary>
@@ -249,7 +251,10 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Controller
         public void StationInitialze()
         {
             mComPLCLink.AxActOpen();
+            ///
            
+
+
         }
         /// <summary>
         /// 
