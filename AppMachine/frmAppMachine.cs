@@ -347,5 +347,152 @@ namespace B2229_AT_FuncCheck
             }
             
         }
+
+        private void btnApply_Click(object sender, EventArgs e)
+        {
+            X_CoreS.RootComp.SaveSettings();
+        }
+        private SMStateMachine mActiveSM = null;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnRun_Click(object sender, EventArgs e)
+        {
+            if (this.InvokeRequired)
+            {
+                //this.BeginInvoke(new _delBtnEventClick(btnStartRun_Click), sender, e);
+                this.BeginInvoke(new EventHandler(btnRun_Click), new object[] { sender, e });
+                return;
+            }
+            //mcbStopWhenFinished.Enabled = true;
+            mActiveSM = mSMMain;
+            RunAndWaitForSM();
+           
+        }
+
+        private void RunAndWaitForSM()
+        {
+            mActiveSM.Go();
+            UpdateControlButtons();
+            do
+            {
+                X_CoreS.SleepWithEvents(100);
+            } while (SMRunning());
+            mActiveSM = null;
+            UpdateControlButtons();
+        }
+
+
+        private bool SMRunning()
+        {
+            foreach (SMStateMachine sm in mAllStateMachine)
+            {
+                if (sm.IsRunning)
+                {
+                    Dev_AppMachine.Machine.This.AnySMRunning = true;
+                    return true;
+                }
+            }
+            Dev_AppMachine.Machine.This.AnySMRunning = false;
+            return false;
+        }
+
+        private void UpdateControlButtons()
+        {
+            if (mActiveSM == null && !Dev_AppMachine.Machine.This.HasReset)
+            {
+                btnRun.Text = "Run";
+                btnRun.Enabled = false;
+                btnPause.Enabled = false;
+
+                btnHomeAll.Enabled = true;
+
+                btnApply.Enabled = true;
+                Dev_AppMachine.Machine.This.RunStatus = Dev_AppMachine.Machine.eRunStatus.Stopped;
+            }
+            else if (mActiveSM == null && Dev_AppMachine.Machine.This.HasReset)
+            {
+                Dev_AppMachine.Machine.This.StopWhenFinished = false;
+  
+                btnRun.Text = "Run";
+                btnRun.Enabled = true;
+                btnPause.Enabled = false;
+
+                btnHomeAll.Enabled = true;
+                btnApply.Enabled = true;
+                Dev_AppMachine.Machine.This.RunStatus = Dev_AppMachine.Machine.eRunStatus.Stopped;
+            }
+            else if (mActiveSM != null && mActiveSM == mSMMain)//&& AppMachine.Comp.AppMachine.This.IsDisChart == 
+            {
+                btnRun.Text = "Running...";
+                btnRun.Enabled = false;
+                btnPause.Enabled = true;
+
+                btnHomeAll.Enabled = false;
+                btnApply.Enabled = false;
+                Dev_AppMachine.Machine.This.RunStatus = Dev_AppMachine.Machine.eRunStatus.Running;
+            }
+
+            else if (mActiveSM != null && mActiveSM == mSMHomeRes)
+            {
+                btnRun.Text = "Homing...";
+                btnRun.Enabled = false;
+                btnPause.Enabled = false;
+
+                btnHomeAll.Enabled = false;
+                btnApply.Enabled = false;
+                Dev_AppMachine.Machine.This.RunStatus = Dev_AppMachine.Machine.eRunStatus.Running;
+            }
+
+            btnPause.Text = "Pause";
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            if (this.InvokeRequired)
+            {
+                //this.BeginInvoke(new _delBtnEventClick(btnPause_Click), sender, e);
+                this.BeginInvoke(new EventHandler(btnPause_Click), new object[] { sender, e });
+                return;
+            }
+
+            if (mActiveSM != null)
+            {
+                if (btnPause.Text == "Pause")
+                {
+
+                    foreach (SMStateMachine sm in mAllStateMachine)
+                    {
+
+                        if (sm.IsRunning)
+                        {
+                            sm.Pause();
+                        }
+
+                    }
+
+                    btnPause.Text = "Continue";
+                    //mcbStopWhenFinished.Enabled = false;
+                    Dev_AppMachine.Machine.This.RunStatus = Dev_AppMachine.Machine.eRunStatus.Pause;
+                }
+                else if (btnPause.Text == "Continue")
+                {
+                    //autoLoadReady.SetTrue();
+                    foreach (SMStateMachine sm in mAllStateMachine)
+                    {
+                        if (sm.IsRunning)
+                        {
+                            sm.Go();
+                        }
+                    }
+
+                    btnPause.Text = "Pause";
+                    //mcbStopWhenFinished.Enabled = true;
+                    Dev_AppMachine.Machine.This.RunStatus = Dev_AppMachine.Machine.eRunStatus.Running;
+                }
+            }
+        }
     }
 }

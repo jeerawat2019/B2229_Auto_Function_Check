@@ -41,8 +41,15 @@
             this.tcSMMain = new System.Windows.Forms.TabControl();
             this.tabStation = new System.Windows.Forms.TabPage();
             this.tcSMStation = new System.Windows.Forms.TabControl();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnApply = new System.Windows.Forms.Button();
+            this.btnHomeAll = new System.Windows.Forms.Button();
+            this.btnPause = new System.Windows.Forms.Button();
+            this.btnRun = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabStateMachine.SuspendLayout();
@@ -50,6 +57,9 @@
             this.tabHomeRes.SuspendLayout();
             this.tabMain.SuspendLayout();
             this.tabStation.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -57,9 +67,10 @@
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 89.71519F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.28481F));
+            this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tabControl3, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -97,7 +108,7 @@
             this.tabAllSetup.Location = new System.Drawing.Point(4, 22);
             this.tabAllSetup.Name = "tabAllSetup";
             this.tabAllSetup.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAllSetup.Size = new System.Drawing.Size(1148, 659);
+            this.tabAllSetup.Size = new System.Drawing.Size(1119, 659);
             this.tabAllSetup.TabIndex = 1;
             this.tabAllSetup.Text = "All Setup";
             this.tabAllSetup.UseVisualStyleBackColor = true;
@@ -164,7 +175,7 @@
             this.tabMain.Location = new System.Drawing.Point(23, 4);
             this.tabMain.Name = "tabMain";
             this.tabMain.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMain.Size = new System.Drawing.Size(1074, 645);
+            this.tabMain.Size = new System.Drawing.Size(1086, 645);
             this.tabMain.TabIndex = 1;
             this.tabMain.Text = "Main";
             this.tabMain.UseVisualStyleBackColor = true;
@@ -175,7 +186,7 @@
             this.tcSMMain.Location = new System.Drawing.Point(3, 3);
             this.tcSMMain.Name = "tcSMMain";
             this.tcSMMain.SelectedIndex = 0;
-            this.tcSMMain.Size = new System.Drawing.Size(1068, 639);
+            this.tcSMMain.Size = new System.Drawing.Size(1080, 639);
             this.tcSMMain.TabIndex = 0;
             // 
             // tabStation
@@ -184,7 +195,7 @@
             this.tabStation.Location = new System.Drawing.Point(23, 4);
             this.tabStation.Name = "tabStation";
             this.tabStation.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStation.Size = new System.Drawing.Size(1074, 645);
+            this.tabStation.Size = new System.Drawing.Size(1086, 645);
             this.tabStation.TabIndex = 2;
             this.tabStation.Text = "Station";
             this.tabStation.UseVisualStyleBackColor = true;
@@ -195,25 +206,106 @@
             this.tcSMStation.Location = new System.Drawing.Point(3, 3);
             this.tcSMStation.Name = "tcSMStation";
             this.tcSMStation.SelectedIndex = 0;
-            this.tcSMStation.Size = new System.Drawing.Size(1068, 639);
+            this.tcSMStation.Size = new System.Drawing.Size(1080, 639);
             this.tcSMStation.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(1136, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(125, 685);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnHomeAll);
+            this.panel1.Controls.Add(this.btnPause);
+            this.panel1.Controls.Add(this.btnRun);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 694);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1127, 52);
             this.panel1.TabIndex = 3;
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage1);
+            this.tabControl3.Controls.Add(this.tabPage2);
+            this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl3.Location = new System.Drawing.Point(1136, 3);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(125, 685);
+            this.tabControl3.TabIndex = 4;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(117, 659);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Controller";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(117, 659);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Monitor";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnApply);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(1136, 694);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(125, 52);
+            this.panel2.TabIndex = 5;
+            // 
+            // btnApply
+            // 
+            this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApply.Location = new System.Drawing.Point(-4, 7);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(132, 39);
+            this.btnApply.TabIndex = 15;
+            this.btnApply.Text = "Apply";
+            this.btnApply.UseVisualStyleBackColor = false;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+            // 
+            // btnHomeAll
+            // 
+            this.btnHomeAll.BackColor = System.Drawing.Color.Khaki;
+            this.btnHomeAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHomeAll.Location = new System.Drawing.Point(773, 6);
+            this.btnHomeAll.Name = "btnHomeAll";
+            this.btnHomeAll.Size = new System.Drawing.Size(132, 39);
+            this.btnHomeAll.TabIndex = 16;
+            this.btnHomeAll.Text = "Reset All";
+            this.btnHomeAll.UseVisualStyleBackColor = false;
+            // 
+            // btnPause
+            // 
+            this.btnPause.BackColor = System.Drawing.Color.RosyBrown;
+            this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPause.Location = new System.Drawing.Point(359, 6);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(132, 40);
+            this.btnPause.TabIndex = 15;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // btnRun
+            // 
+            this.btnRun.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRun.Location = new System.Drawing.Point(221, 6);
+            this.btnRun.Name = "btnRun";
+            this.btnRun.Size = new System.Drawing.Size(132, 40);
+            this.btnRun.TabIndex = 14;
+            this.btnRun.Text = "Run";
+            this.btnRun.UseVisualStyleBackColor = false;
+            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
             // frmAppMachine
             // 
@@ -232,6 +324,9 @@
             this.tabHomeRes.ResumeLayout(false);
             this.tabMain.ResumeLayout(false);
             this.tabStation.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -251,8 +346,15 @@
         private System.Windows.Forms.TabControl tcSMReset;
         private System.Windows.Forms.TabControl tcSMMain;
         private System.Windows.Forms.TabControl tcSMStation;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnApply;
+        private System.Windows.Forms.Button btnHomeAll;
+        private System.Windows.Forms.Button btnPause;
+        private System.Windows.Forms.Button btnRun;
     }
 }
 

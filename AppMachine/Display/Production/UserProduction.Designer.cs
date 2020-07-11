@@ -68,7 +68,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.groupBox2.BackColor = System.Drawing.SystemColors.Control;
             this.groupBox2.Controls.Add(this.appPartJigColWDView1);
             this.groupBox2.Controls.Add(this.appPartJigColAngingView1);
             this.groupBox2.Controls.Add(this.appPartJigColSFitViewss2);
@@ -86,6 +86,9 @@
             // 
             this.appPartJigColWDView1.Dock = System.Windows.Forms.DockStyle.Right;
             this.appPartJigColWDView1.Location = new System.Drawing.Point(450, 16);
+            this.appPartJigColWDView1.MemBinProcess = null;
+            this.appPartJigColWDView1.MemControlPart = 0;
+            this.appPartJigColWDView1.MemRang = 10;
             this.appPartJigColWDView1.Name = "appPartJigColWDView1";
             this.appPartJigColWDView1.Size = new System.Drawing.Size(66, 346);
             this.appPartJigColWDView1.TabIndex = 2;
@@ -94,6 +97,9 @@
             // 
             this.appPartJigColAngingView1.Dock = System.Windows.Forms.DockStyle.Right;
             this.appPartJigColAngingView1.Location = new System.Drawing.Point(516, 16);
+            this.appPartJigColAngingView1.MemBinProcess = null;
+            this.appPartJigColAngingView1.MemControlPart = 0;
+            this.appPartJigColAngingView1.MemRang = 10;
             this.appPartJigColAngingView1.Name = "appPartJigColAngingView1";
             this.appPartJigColAngingView1.Size = new System.Drawing.Size(231, 346);
             this.appPartJigColAngingView1.TabIndex = 1;
@@ -102,6 +108,9 @@
             // 
             this.appPartJigColSFitViewss2.Dock = System.Windows.Forms.DockStyle.Right;
             this.appPartJigColSFitViewss2.Location = new System.Drawing.Point(747, 16);
+            this.appPartJigColSFitViewss2.MemBinProcess = null;
+            this.appPartJigColSFitViewss2.MemControlPart = 0;
+            this.appPartJigColSFitViewss2.MemRang = 10;
             this.appPartJigColSFitViewss2.Name = "appPartJigColSFitViewss2";
             this.appPartJigColSFitViewss2.Size = new System.Drawing.Size(59, 346);
             this.appPartJigColSFitViewss2.TabIndex = 0;
@@ -110,6 +119,9 @@
             // 
             this.appPartJigColSFitViewss1.Dock = System.Windows.Forms.DockStyle.Right;
             this.appPartJigColSFitViewss1.Location = new System.Drawing.Point(806, 16);
+            this.appPartJigColSFitViewss1.MemBinProcess = null;
+            this.appPartJigColSFitViewss1.MemControlPart = 0;
+            this.appPartJigColSFitViewss1.MemRang = 10;
             this.appPartJigColSFitViewss1.Name = "appPartJigColSFitViewss1";
             this.appPartJigColSFitViewss1.Size = new System.Drawing.Size(59, 346);
             this.appPartJigColSFitViewss1.TabIndex = 0;

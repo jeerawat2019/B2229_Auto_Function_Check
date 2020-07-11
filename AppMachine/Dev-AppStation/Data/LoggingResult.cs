@@ -42,6 +42,16 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Data
                 return true;
             }
         }
+        private List<string> mPartList = null;
+        [XmlIgnore]
+        public List<string> PartList
+        {
+            [StateMachineEnabled]
+            get
+            {
+                return mPartList;
+            }
+        }
         public LoggingResult() { }
         public LoggingResult(string name) : base(name) { }
         public override void Initialize()
@@ -65,7 +75,23 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Data
         {
 
         }
-       
+        [StateMachineEnabled]
+        public void AttachResultPart(string result)
+        {
+            lock (this)
+            {
+                if (mPartList == null) return;
+                ///
+                mPartList.Add(result);
+            }
+        }
+        [StateMachineEnabled]
+        public void DisAttachResultPart(string item)
+        {
+            if (mPartList.Count == 0 || mPartList == null) return;
+            ///
+            mPartList.Remove(item);
+        }
         /// <summary>
         /// 
         /// </summary>

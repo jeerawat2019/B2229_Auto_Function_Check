@@ -209,14 +209,21 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
             //}
         }
         [StateMachineEnabled]
-        public void AddResultPart(string result)
+        public void AttachResultPart(string result)
         {
             lock (this)
             {
                 if (mPartList == null) return;
-
+                ///
                 mPartList.Add(result);
             }
+        }
+        [StateMachineEnabled]
+        public void DisAttachResultPart(string item)
+        {
+            if (mPartList.Count == 0 || mPartList == null) return;
+            ///
+            mPartList.Remove(item);
         }
         [StateMachineEnabled]
         public void ClearPartResult()

@@ -188,12 +188,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
             //if (this.PartResult)
             //{
             //    Dev_AppMachine.Machine.This.PartJigColAngingView.PartJigViews[this.StationIndex].CDPlayer.IsProcess = AppMachine.AppResult.Part.Process.Finnish;
-            ///
-            //    Dev_AppMachine.Machine.This.PartJigColAngingView.PartJigViews[this.StationIndex].CDPlayer.PartStatus = "Pass";
             //}
-            // else
-            //    Dev_AppMachine.Machine.This.PartJigColAngingView.PartJigViews[this.StationIndex].CDPlayer.PartStatus = "FAIL";
-
         }
         [StateMachineEnabled]
         public void BuildCerrentResultPart()
@@ -215,14 +210,14 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
                     DateTime.Now.ToString("ddMMyyyy")
                     ));
 
-                DisatTachResultPart(CerrentResultSFit);
+                DisAttachResultPart(CerrentResultSFit);
             }
             //return true;
             //});
             //}
         }
         [StateMachineEnabled]
-        public void AddResultPart(string result)
+        public void AttachResultPart(string result)
         {
             lock (this)
             {
@@ -232,7 +227,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
             }
         }
         [StateMachineEnabled]
-        public void DisatTachResultPart(string item)
+        public void DisAttachResultPart(string item)
         {
             if (mPartList.Count == 0 || mPartList == null) return;
             ///
@@ -283,7 +278,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
         [StateMachineEnabled]
         public void UpdateResultPart()
         {
-            Dev_AppMachine.Machine.This.PartJigColAngingView.PartJigViews[this.StationIndex].CDPlayer.PartStatus = (this.PartResult == true) ? "OK" : "NG";
+            Dev_AppMachine.Machine.This.PartJigColAngingView.PartJigViews[this.StationIndex].CDPlayer.PartStatus = (this.PartResult == true) ? "PASS" : "FAIL";
         }
     }
 }
