@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Machine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance" Name="MainApp">
+  <NextChildNo>0</NextChildNo>
+  <ChildArray>
+    <CompBase Name="AllTesterSolution">
+      <NextChildNo>0</NextChildNo>
+      <ChildArray>
+        <ComuPCLink Name="T_PC1_Sfit">
+          <NextChildNo>0</NextChildNo>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <Settings Name="">
+            <NextChildNo>0</NextChildNo>
+            <Simulate>None</Simulate>
+            <Enabled>true</Enabled>
+            <CommPort>COM1</CommPort>
+            <BaudRate>BR38400</BaudRate>
+            <DataLength>DataLength_8</DataLength>
+            <Parity>Even</Parity>
+            <StopBits>One</StopBits>
+            <ReadWriteTimeOut>
+              <Val>500</Val>
+            </ReadWriteTimeOut>
+            <HandShake>None</HandShake>
+            <OwnDataHandler>false</OwnDataHandler>
+            <NewLine>CR</NewLine>
+          </Settings>
+        </ComuPCLink>
+        <ComuPCLink Name="T_PC2_Sfit">
+          <NextChildNo>0</NextChildNo>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <Settings Name="">
+            <NextChildNo>0</NextChildNo>
+            <Simulate>None</Simulate>
+            <Enabled>true</Enabled>
+            <CommPort>COM1</CommPort>
+            <BaudRate>BR38400</BaudRate>
+            <DataLength>DataLength_8</DataLength>
+            <Parity>Even</Parity>
+            <StopBits>One</StopBits>
+            <ReadWriteTimeOut>
+              <Val>500</Val>
+            </ReadWriteTimeOut>
+            <HandShake>None</HandShake>
+            <OwnDataHandler>false</OwnDataHandler>
+            <NewLine>CR</NewLine>
+          </Settings>
+        </ComuPCLink>
+        <ComuPCLink Name="T_PC3_Anging">
+          <NextChildNo>0</NextChildNo>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <Settings Name="">
+            <NextChildNo>0</NextChildNo>
+            <Simulate>None</Simulate>
+            <Enabled>true</Enabled>
+            <CommPort>COM1</CommPort>
+            <BaudRate>BR38400</BaudRate>
+            <DataLength>DataLength_8</DataLength>
+            <Parity>Even</Parity>
+            <StopBits>One</StopBits>
+            <ReadWriteTimeOut>
+              <Val>500</Val>
+            </ReadWriteTimeOut>
+            <HandShake>None</HandShake>
+            <OwnDataHandler>false</OwnDataHandler>
+            <NewLine>CR</NewLine>
+          </Settings>
+        </ComuPCLink>
+        <ComuPCLink Name="T_PC4_WD">
+          <NextChildNo>0</NextChildNo>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <Settings Name="">
+            <NextChildNo>0</NextChildNo>
+            <Simulate>None</Simulate>
+            <Enabled>true</Enabled>
+            <CommPort>COM1</CommPort>
+            <BaudRate>BR38400</BaudRate>
+            <DataLength>DataLength_8</DataLength>
+            <Parity>Even</Parity>
+            <StopBits>One</StopBits>
+            <ReadWriteTimeOut>
+              <Val>500</Val>
+            </ReadWriteTimeOut>
+            <HandShake>None</HandShake>
+            <OwnDataHandler>false</OwnDataHandler>
+            <NewLine>CR</NewLine>
+          </Settings>
+        </ComuPCLink>
+      </ChildArray>
+      <Simulate>None</Simulate>
+      <Enabled>true</Enabled>
+    </CompBase>
+    <CompBase Name="AllController">
+      <NextChildNo>0</NextChildNo>
+      <ChildArray>
+        <ComuPLCLink Name="PLC_Patturn">
+          <NextChildNo>0</NextChildNo>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <IPAddress>192.168.1.10</IPAddress>
+          <Port>0</Port>
+          <Id>1</Id>
+          <Description>CPU</Description>
+          <Status>Normal</Status>
+          <Model>Q02UDPU</Model>
+          <StstionNumber>5</StstionNumber>
+          <IsPlcConnect>false</IsPlcConnect>
+        </ComuPLCLink>
+      </ChildArray>
+      <Simulate>None</Simulate>
+      <Enabled>true</Enabled>
+    </CompBase>
+    <CompBase Name="AllLogging">
+      <NextChildNo>0</NextChildNo>
+      <ChildArray>
+        <LogsManager Name="DataLogManager">
+          <NextChildNo>0</NextChildNo>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <SubPath>Log</SubPath>
+          <RootFolder>RootFolder</RootFolder>
+          <Mask>MASK_ALL</Mask>
+          <FmtFilename>yyyy-MM-dd</FmtFilename>
+          <Extension>log</Extension>
+          <FmtSubFolder>Result</FmtSubFolder>
+          <ResultFileName>Result</ResultFileName>
+          <ResultPath>C:\</ResultPath>
+          <ColunmsHeader>
+            <string>No</string>
+            <string>Date</string>
+            <string>Time</string>
+            <string>2DCode</string>
+            <string>StationId</string>
+            <string>JigNo</string>
+            <string>SFit-Result</string>
+            <string>TimeFinnish</string>
+            <string>StationId</string>
+            <string>JigNo</string>
+            <string>Anging-Result</string>
+            <string>TimeFinnish</string>
+            <string>StationId</string>
+            <string>JigNo</string>
+            <string>WD-Result</string>
+            <string>TimeFinnish</string>
+            <string>FinalResult</string>
+          </ColunmsHeader>
+        </LogsManager>
+      </ChildArray>
+      <Simulate>None</Simulate>
+      <Enabled>true</Enabled>
+    </CompBase>
+    <CompBase Name="AllStation">
+      <NextChildNo>0</NextChildNo>
+      <ChildArray>
+        <PLC_System Name="PLC_Q02Cpu">
+          <NextChildNo>0</NextChildNo>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+        </PLC_System>
+        <PC1_SFIT Name="ST_PC1_Sfit">
+          <NextChildNo>0</NextChildNo>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <process>
+            <string>01</string>
+            <string>02</string>
+            <string>03</string>
+            <string>99</string>
+          </process>
+        </PC1_SFIT>
+        <PC2_SFIT Name="ST_PC2_Sfit">
+          <NextChildNo>0</NextChildNo>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <process>
+            <string>01</string>
+            <string>02</string>
+            <string>03</string>
+            <string>99</string>
+          </process>
+        </PC2_SFIT>
+        <PC3_AGING Name="ST_PC3_Anging">
+          <NextChildNo>0</NextChildNo>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <process>
+            <string>01</string>
+            <string>02</string>
+            <string>03</string>
+            <string>99</string>
+          </process>
+        </PC3_AGING>
+        <PC5_WD Name="ST_PC1_WD">
+          <NextChildNo>0</NextChildNo>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <process>
+            <string>01</string>
+            <string>02</string>
+            <string>03</string>
+            <string>99</string>
+          </process>
+        </PC5_WD>
+        <LoggingResult Name="DataLogsResult">
+          <NextChildNo>0</NextChildNo>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <Partheader>
+            <string>No</string>
+            <string>Date</string>
+            <string>Time</string>
+            <string>2DCode</string>
+            <string>StationId</string>
+            <string>JigNo</string>
+            <string>SFit-Result</string>
+            <string>TimeFinnish</string>
+            <string>StationId</string>
+            <string>JigNo</string>
+            <string>Anging-Result</string>
+            <string>TimeFinnish</string>
+            <string>StationId</string>
+            <string>JigNo</string>
+            <string>WD-Result</string>
+            <string>TimeFinnish</string>
+            <string>FinalResult</string>
+          </Partheader>
+        </LoggingResult>
+      </ChildArray>
+      <Simulate>None</Simulate>
+      <Enabled>true</Enabled>
+    </CompBase>
+  </ChildArray>
+  <Simulate>None</Simulate>
+  <Enabled>true</Enabled>
+</Machine>

@@ -53,13 +53,22 @@ namespace AiComp.Misubishis.Divice.PLC
                 if (string.IsNullOrEmpty(this.IPAddress))
                     return false;// throw new PLC_Exception("PLC IP Address found!");
 
-                mPing = new Ping();
-                ///
-                PingReply pingReply = mPing.Send(this.IPAddress, 10000);
-                ///
-                Status = pingReply.Status.ToString() != "Success" ? Error.CommuFail : Error.Normal;
-                ///
-                return (Status == Error.Normal) ? true : false;
+                try
+                {
+                    mPing = new Ping();
+                    ///
+                    PingReply pingReply = mPing.Send(this.IPAddress, 10000);
+                    ///
+                    Status = pingReply.Status.ToString() != "Success" ? Error.CommuFail : Error.Normal;
+                    ///
+                    return (Status == Error.Normal) ? true : false;
+                }
+                catch (Exception ex)
+
+                { 
+                     X_CoreS.LogError(ex, $"TimeOut waiting for read port of'{this.Nickname}'");
+                     return false;
+                }
 
             }
         }

@@ -47,7 +47,7 @@ namespace B2229_AT_FuncCheck.Dev_Component
         ///// </summary>
         ///// 
 
-        public virtual SequenceError GetData2DCode(string GetData2DCode, out List<string> Result)
+        public virtual SequenceError GetData2DCode(string GetData2DCode, out string Result)
         {
             Result = null;
 
@@ -58,7 +58,7 @@ namespace B2229_AT_FuncCheck.Dev_Component
                     ///
 
                     string sValue;
-                    string Datatrim;
+                    //string Datatrim;
                     ///
                     //if (!IsPlcConnect)
                     //    return iError.IsPlcConnect;
@@ -66,16 +66,16 @@ namespace B2229_AT_FuncCheck.Dev_Component
                     List<string> listValue = new List<string>();
                     ///
                     this.ReadMuiltiWordData(10, GetData2DCode, out sValue);//450 Word [1Data = 2D-Code =>11 WORD]
-                                                                            //string[] ListData;
-                    Datatrim = sValue.Trim(new char[] { '\0', ',' });
+                                                                           //string[] ListData;
+                    Result = sValue.Trim(new char[] { '\0', ',' });
 
                     //SimulationData2DCode  BEFORE \r  Test \0
-                    Result = Datatrim.Split(new char[] { '\r' }).ToList().Select(x =>
-                    {
-                        if (string.IsNullOrEmpty(x) || x.Contains("NGERROR") || x.Contains("[null]") || x.Contains("ERROR"))
-                            return "NG-ERROR";
-                        return x.Substring(0, x.IndexOf(':'));
-                    }).ToList();
+                    //Result = Datatrim.Split(new char[] { '\r' }).ToList().Select(x =>
+                    //{
+                    //    if (string.IsNullOrEmpty(x) || x.Contains("NGERROR") || x.Contains("[null]") || x.Contains("ERROR"))
+                    //        return "NG-ERROR";
+                    //    return x.Substring(0, x.IndexOf(':'));
+                    //}).ToList();
 
 
                     ///

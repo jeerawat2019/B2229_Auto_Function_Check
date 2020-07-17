@@ -26,7 +26,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
             STATUS,
             ERROR
         }
-
+        protected bool simulater = true;
         [XmlIgnore]
         public SetCmdSend CmdSetProcess
         {
@@ -119,7 +119,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
             get 
             {
                 X_CoreS.Delay(msec);
-                return GetPropValue(() => StationID, "1"); 
+                return GetPropValue(() => StationID, "01"); 
             }
             [StateMachineEnabled]
             set { SetPropValue(() => StationID, value); }
@@ -181,20 +181,20 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
             [StateMachineEnabled]
             set { SetPropValue(() => JigNumber, value); }
         }
-        [Browsable(true)]
-        [Category("Station")]
-        [XmlIgnore]
-        public string SetFormate
-        {
-            [StateMachineEnabled]
-            get 
-            {
-                X_CoreS.Delay(msec);
-                return GetPropValue(() => SetFormate);
-            }
-            [StateMachineEnabled]
-            set { SetPropValue(() => SetFormate, value); }
-        }
+        //[Browsable(true)]
+        //[Category("Station")]
+        //[XmlIgnore]
+        //public string SetFormate
+        //{
+        //    [StateMachineEnabled]
+        //    get 
+        //    {
+        //        X_CoreS.Delay(msec);
+        //        return GetPropValue(() => SetFormate);
+        //    }
+        //    [StateMachineEnabled]
+        //    set { SetPropValue(() => SetFormate, value); }
+        //}
         [Browsable(true)]
         [Category("Station")]
         [XmlIgnore]
@@ -260,23 +260,50 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
         public virtual void StationReset()
         {
             this.Data2Dcode = null;
-            this.SetFormate = null;
+            //this.SetFormate = null;
             this.JigNumber = 0;
             this.StationIndex = 0;
+        }
+        public enum JIG
+        {
+            START,
+            STOP,
+            RE_TEST,
+            JIG_NOT_USE
+        };
+        public string[] process = new string[]
+        {
+            "01",//Start
+            "02",//Stop
+            "03",//RE-Test
+            "99",//Jig Not Use
+        };
+        //[StateMachineEnabled]
+        public virtual double CalculateTrayCycleTime(DateTime timeCapture)
+        {
+            DateTime current = DateTime.Now;
+            ///
+            TimeSpan diff = current - timeCapture;//this.TrayCycleTime
+            ///
+            return (double)diff.TotalMilliseconds / 1000;
+        }
+        public virtual bool GetStatusTestJig()
+        {
+            return true;
         }
         /// <summary>
         /// 
         /// </summary>
         [StateMachineEnabled]
-        protected virtual void SetCmdTestJig(string setProcess)
+        protected virtual string CmdSetTestJig(JIG jigProcess,out string cmdSet)
         {
-            var cmd = new JigCommand();
+            var cmd = new JigCommand(); cmdSet = "";
             ///
             try
             {
-                if(string.IsNullOrEmpty(setProcess))
-                    ///
-                    throw new X_CoreExceptionError($"Can't is data");
+                //if(string.IsNullOrEmpty(jigProcess))
+                //    ///
+                //    throw new X_CoreExceptionError($"Can't is data");
 
                 if (StationID == null || !X_Core.X_CoreS.IsNumber(this.JigNumber.ToString()))
                     ///
@@ -288,13 +315,19 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
                 ///
                 else
                 {
-                    cmd.CmdSend["PCSation"] = this.StationID;
-                    cmd.CmdSend["JigNo"] = this.JigNumber.ToString();
-                    cmd.CmdSend["Jig2DCode"] = this.Data2Dcode.ToUpper();
-                    cmd.CmdSend["JigProcess"] = setProcess;
+                    cmd.SendCmdSet["PCSation"] = this.StationID;
+                    cmd.SendCmdSet["JigNo"] = this.JigNumber.ToString();
+                    cmd.SendCmdSet["Jig2DCode"] = this.Data2Dcode.ToUpper();
+                    cmd.SendCmdSet["JigProcess"] = process[(int)jigProcess];                  
                     ///
-                    SetFormate = ConvertToFormat(cmd);
+                    string SetFormate = ConvertToFormat(cmd);
+                    byte[] str = Encoding.ASCII.GetBytes(SetFormate);
+                    string CRC8 = crc8(str).ToString();
                     ///
+                    cmdSet = string.Format("{0},{1}", SetFormate, CRC8);
+                    cmd.SendCmdSet["CRC8"] = CRC8;
+                    ///
+                    return CRC8;
                 }
 
             }
@@ -302,6 +335,82 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
             {
                 throw new X_CoreExceptionPopup(ex, $"String Format fail'{this.Nickname}'");
             }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [StateMachineEnabled]
+        protected virtual string CmdGetStatusJig(out string cmdSet)
+        {
+            var cmd = new JigCommand(); cmdSet = "";
+            ///
+            try
+            {
+                //if(string.IsNullOrEmpty(jigProcess))
+                //    ///
+                //    throw new X_CoreExceptionError($"Can't is data");
+
+                if (StationID == null || !X_Core.X_CoreS.IsNumber(this.JigNumber.ToString()))
+                    ///
+                    throw new X_CoreExceptionError($"Can't is data numeric");
+                ///
+                //else if (string.IsNullOrEmpty(this.JigData2Dcode) || (this.JigData2Dcode.Length < 20))
+                //    ///
+                //    throw new X_CoreExceptionError($"Input parameter jig2DCode is null");
+                ///
+                else
+                {
+                    cmd.SendCmdGet["PCSation"] = this.StationID;
+                    cmd.SendCmdGet["JigNo"] = this.JigNumber.ToString();
+                    cmd.SendCmdGet["Status"] = this.Data2Dcode.ToUpper();
+                    
+                    ///
+                    string SetFormate = ConvertToFormat(cmd);
+                    byte[] str = Encoding.ASCII.GetBytes(SetFormate);
+                    string CRC8 = crc8(str).ToString();
+                    ///
+                    cmdSet = string.Format("{0},{1}", SetFormate, CRC8);
+                    cmd.SendCmdSet["CRC8"] = CRC8;
+                    ///
+                    return CRC8;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new X_CoreExceptionPopup(ex, $"String Format fail'{this.Nickname}'");
+            }
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public byte crc8(byte[] str) // no need to pass length in 'safe' code
+        {
+            int len = str.Length;
+            int i, f;
+            byte data;
+            byte crc;
+            crc = 0;
+            int j = 0;
+
+            while (len-- != 0)
+            {
+                data = str[j++];
+                for (i = 0; i < 8; i++)
+                {
+                    f = 1 & (data ^ crc);
+                    crc >>= 1;
+                    data >>= 1;
+                    if (f != 0)
+                    {
+                        crc ^= 0x8c;
+                    }
+                }
+            }
+
+            return crc;
         }
         /// <summary>
         /// 
@@ -328,16 +437,16 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
                 else
                 {
                     int i = 0;
-                    foreach (string key in cmd.CmdRecive.Keys.ToList())
-                        cmd.CmdRecive[key] = Word[i++];
+                    foreach (string key in cmd.SendCmdGet.Keys.ToList())
+                        cmd.SendCmdGet[key] = Word[i++];
                     ///
-                  return cmd.CmdRecive.Where(x =>
+                  return cmd.SendCmdGet.Where(x =>
                     {
                         if (x.Key.Contains("JigResult"))
                         {
                             if (x.Value == null)
                                 return false;
-                            return (x.Value == "PASS") ? true : false;
+                            return (x.Value == "OK") ? true : false;
                         }
                         else
                             return false;
@@ -360,11 +469,11 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
         /// <returns></returns>
         protected string ConvertToFormat(JigCommand cmd)
         {
-            if (cmd.CmdSend == null) return null;
+            if (cmd.SendCmdSet == null) return null;
             //this._aoiBoatheader.ForEach(x => csv.Append(string.Format("{0},", x)));
             string str = null;
             ///
-            cmd.CmdSend.All(x =>
+            cmd.SendCmdSet.All(x =>
             {
                 str += (x.Value + ",");
                 return true;

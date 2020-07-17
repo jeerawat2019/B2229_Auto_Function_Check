@@ -124,6 +124,7 @@ namespace AiComp.Misubishis.Divice.PLC
 
             //Check the 'DeviceSize'.(If succeeded, the value is gotten.)
             if (!GetIntValue(sNumberOfData, out iNumberOfData)) {
+
                 //If failed, this process is end.	
                 return -1;
             }

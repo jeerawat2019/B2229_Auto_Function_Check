@@ -16,7 +16,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Data
 {
     public class LoggingResult : CompBase
     {
-        private List<string> mPartheader = new List<string>(){
+        public List<string> Partheader = new List<string>(){
                 "No","Date","Time","2DCode","StationId","JigNo","SFit-Result","TimeFinnish","StationId","JigNo","Anging-Result","TimeFinnish","StationId","JigNo","WD-Result","TimeFinnish","FinalResult",
         };
         int msec = 35;
@@ -65,7 +65,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Data
 
             mLogsManager = X_CoreS.GetComponent(Dev_AppMachine.StaticName.DATA_LOGSMANAGER) as Dev_DataLogs.LogsManager;
             ///
-            mLogsManager.ColunmsHeader = this.mPartheader;
+            mLogsManager.ColunmsHeader = this.Partheader;
         }
         /// <summary>
         /// 

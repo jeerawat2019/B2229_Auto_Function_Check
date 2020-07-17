@@ -26,7 +26,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
         }
         private string mCerrentResult = null;
         [XmlIgnore]
-        public String CrrentResult
+        public String CerrentResult
         {
             [StateMachineEnabled]
             get
@@ -89,14 +89,18 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
                 ///
                 if (this.StationIndex < 0 || this.StationIndex > Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews.Length) return false;
                 ///
-                bool result = (Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.IsProcess
-                    == AppMachine.AppResult.Part.Process.Start) ? true : false;
-                //bool data2dcode = (string.IsNullOrEmpty(Dev_AppMachine.Machine.This.PartJigColSfit1.PartJigViews[this.StationIndex].CDPlayer.Data2DCode));
-
+                var part = Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex];
+                ///
+                bool result = (part.CDPlayer.IsProcess == AppMachine.AppResult.Part.Process.Start) ? true : false;
+                ///
+                //bool data2dcode = (!string.IsNullOrEmpty(part.CDPlayer.Data2DCode));
+                ///
                 if (result && Has2DCode)
                 {
-                    Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.IsProcess
-                        = AppMachine.AppResult.Part.Process.Testting;
+                    part.CDPlayer.IsProcess = AppMachine.AppResult.Part.Process.Testting;
+                    ///
+                    part.CDPlayer.StartTimeCapture = DateTime.Now;
+
                 }
                 return result;
             }
@@ -114,9 +118,14 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
                 if (this.StationIndex < 0 || this.StationIndex > Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews.Length) return false;
                 ///
                 return (Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.IsProcess
+                    ///
                     == AppMachine.AppResult.Part.Process.Testting) ? true : false;
             }
         }
+        private double timesim = 5000; //5 sec
+        /// <summary>
+        /// 
+        /// </summary>
         [XmlIgnore]
         public override bool IsTestFinnish
         {
@@ -130,7 +139,19 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
                 if (this.StationIndex < 0 || this.StationIndex > Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews.Length) return false;
                 ///
                 else
-                    return SetCmdStatusTestJig();
+                {
+                    if (this.simulater)
+                    {
+                        var part = Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex];
+                        ///
+                        return (CalculateTrayCycleTime(part.CDPlayer.StartTimeCapture) >= timesim) ? true : false;
+
+                    }
+                    else
+                    {
+                        return GetStatusTestJig();
+                    }
+                }
             }
         }
         public PC5_WD() { }
@@ -140,12 +161,12 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
             base.Initialize();
            
         }
-        private Dev_Component.ComuPCLink mComPC3_Anging = null;
+        private Dev_Component.ComuPCLink mComPC3_WD = null;
         public override void InitializeIDReferences()
         {
             base.InitializeIDReferences();
             ///
-            mComPC3_Anging = X_CoreS.GetComponent(Dev_AppMachine.StaticName.T_ANGIN_NO01_NO13) as Dev_Component.ComuPCLink;
+            mComPC3_WD = X_CoreS.GetComponent(Dev_AppMachine.StaticName.T_ANGIN_NO01_NO13) as Dev_Component.ComuPCLink;
             ///
             this.EndStationIndex = 1;
         }
@@ -155,31 +176,42 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
         [StateMachineEnabled]
         public override void StationInitialize()
         {
-            this.StationID = "WD";
+            this.StationID = "04";
         }
         /// <summary>
         /// 
         /// </summary>
         [StateMachineEnabled]
-        public void SetCmdStartTestJig()
+        public void SetStartTestJig()
         {
-            base.SetCmdTestJig("START");
+            string cmdSet = null;
             ///
-            mComPC3_Anging.OnSendPortCommand(this.SetFormate);
+            string crc8 = base.CmdSetTestJig(JIG.START, out cmdSet);
             ///
-            Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.IsProcess = AppMachine.AppResult.Part.Process.Testting;
+            if (mComPC3_WD.OnSendPortCommand(cmdSet, "@SET-01").Contains(crc8))
+            {
+                ///
+                Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.IsProcess = AppMachine.AppResult.Part.Process.Testting;
+            }
         }
 
-        public bool SetCmdStatusTestJig()
+        public bool GetStatusTestJig()
         {
-            //base.SetCmdTestJig("STATUS");
+            string cmdGet = null; this.PartResult = false;
             ///
-            this.PartResult = base.ChangFormateDataRecive("GET-A,1,1,RUN,0,PASS");
+            string crc8 = base.CmdGetStatusJig(out cmdGet);
             ///
-            ///base.ChangFormateDataRecive(mComPC1_Sfit.OnSendPortCommand(this.SetFormate));
+            if (mComPC3_WD.OnSendPortCommand(cmdGet, "@GET-01").Contains(crc8))
+            {
+                ///
+                this.PartResult = base.ChangFormateDataRecive(cmdGet);//"GET-A,1,1,RUN,0,OK"
+                ///
+            }
+            ///base.ChangFormateDataRecive(mComPC3_WD.OnSendPortCommand(this.SetFormate));
             /// 
             return this.PartResult;
-            //if (result)
+            ///
+            //if (this.PartResult)
             //{
             //    Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex].CDPlayer.IsProcess = AppMachine.AppResult.Part.Process.Finnish;
             //}
@@ -187,22 +219,29 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.TesterStation
         [StateMachineEnabled]
         public void BuildCerrentResultPart()
         {
-            var part = Dev_AppMachine.Machine.This.PartJigColAngingView.PartJigViews[this.StationIndex];
+            var part = Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews[this.StationIndex];
             //if (mPartList.Count != 0)
             //{
-            //Dev_AppMachine.Machine.This.PartJigColSfit1.PartJigViews.Select(x =>
+            //Dev_AppMachine.Machine.This.PartJigColWDView.PartJigViews.Select(x =>
             //{
             if (part.CDPlayer.IsProcess == AppMachine.AppResult.Part.Process.Finnish)
             {
                 ///
-                mCerrentResult = (string.Format(@"{0},{1}",
-                    DateTime.Now.ToString("ddMMyyyy"),
-                    part.CDPlayer.Data2DCode,
-                    this.StationID,
-                    part.CDPlayer.PartId.ToString(),
-                    (part.CDPlayer.IsPass) ? "PASS" : "FAIL",
-                    DateTime.Now.ToString("ddMMyyyy")
-                    ));
+                mCerrentResult = (string.Format(@"{0},{1},{2},{3},{4},{5}",
+                        ///
+                        DateTime.Now.ToString("ddMMyyyy"),
+                        ///
+                        part.CDPlayer.Data2DCode,
+                        ///
+                        this.StationID,
+                        ///
+                        part.CDPlayer.PartId.ToString(),
+                        ///
+                        (part.CDPlayer.IsPass) ? "OK" : "NG",
+                        ///
+                        CalculateTrayCycleTime(part.CDPlayer.StartTimeCapture).ToString()
+                        ///
+                        ));
             }
             //return true;
             //});
