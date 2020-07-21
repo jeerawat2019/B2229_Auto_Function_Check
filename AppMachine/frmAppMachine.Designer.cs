@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.btnApply = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabProduction = new System.Windows.Forms.TabPage();
             this.tabAllSetup = new System.Windows.Forms.TabPage();
@@ -42,15 +44,14 @@
             this.tabStation = new System.Windows.Forms.TabPage();
             this.tcSMStation = new System.Windows.Forms.TabControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnApply = new System.Windows.Forms.Button();
             this.btnHomeAll = new System.Windows.Forms.Button();
             this.btnPause = new System.Windows.Forms.Button();
             this.btnRun = new System.Windows.Forms.Button();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabStateMachine.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -59,7 +60,6 @@
             this.tabStation.SuspendLayout();
             this.panel1.SuspendLayout();
             this.tabControl3.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -75,10 +75,32 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.32558F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.674418F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1264, 749);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 94.5593F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.440696F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1363, 919);
             this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnApply);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel2.Location = new System.Drawing.Point(1225, 871);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(135, 45);
+            this.panel2.TabIndex = 5;
+            // 
+            // btnApply
+            // 
+            this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnApply.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApply.Location = new System.Drawing.Point(0, 0);
+            this.btnApply.Name = "btnApply";
+            this.btnApply.Size = new System.Drawing.Size(135, 45);
+            this.btnApply.TabIndex = 15;
+            this.btnApply.Text = "Apply";
+            this.btnApply.UseVisualStyleBackColor = false;
+            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
             // 
             // tabControl1
             // 
@@ -90,7 +112,7 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1127, 685);
+            this.tabControl1.Size = new System.Drawing.Size(1216, 862);
             this.tabControl1.TabIndex = 1;
             // 
             // tabProduction
@@ -98,7 +120,7 @@
             this.tabProduction.Location = new System.Drawing.Point(4, 22);
             this.tabProduction.Name = "tabProduction";
             this.tabProduction.Padding = new System.Windows.Forms.Padding(3);
-            this.tabProduction.Size = new System.Drawing.Size(1119, 659);
+            this.tabProduction.Size = new System.Drawing.Size(1208, 836);
             this.tabProduction.TabIndex = 0;
             this.tabProduction.Text = "Production";
             this.tabProduction.UseVisualStyleBackColor = true;
@@ -215,20 +237,55 @@
             this.panel1.Controls.Add(this.btnPause);
             this.panel1.Controls.Add(this.btnRun);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 694);
+            this.panel1.Location = new System.Drawing.Point(3, 871);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1127, 52);
+            this.panel1.Size = new System.Drawing.Size(1216, 45);
             this.panel1.TabIndex = 3;
+            // 
+            // btnHomeAll
+            // 
+            this.btnHomeAll.BackColor = System.Drawing.Color.Khaki;
+            this.btnHomeAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHomeAll.Location = new System.Drawing.Point(635, 3);
+            this.btnHomeAll.Name = "btnHomeAll";
+            this.btnHomeAll.Size = new System.Drawing.Size(132, 39);
+            this.btnHomeAll.TabIndex = 16;
+            this.btnHomeAll.Text = "Reset All";
+            this.btnHomeAll.UseVisualStyleBackColor = false;
+            // 
+            // btnPause
+            // 
+            this.btnPause.BackColor = System.Drawing.Color.RosyBrown;
+            this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPause.Location = new System.Drawing.Point(497, 2);
+            this.btnPause.Name = "btnPause";
+            this.btnPause.Size = new System.Drawing.Size(132, 40);
+            this.btnPause.TabIndex = 15;
+            this.btnPause.Text = "Pause";
+            this.btnPause.UseVisualStyleBackColor = false;
+            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
+            // 
+            // btnRun
+            // 
+            this.btnRun.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRun.Location = new System.Drawing.Point(359, 2);
+            this.btnRun.Name = "btnRun";
+            this.btnRun.Size = new System.Drawing.Size(132, 40);
+            this.btnRun.TabIndex = 14;
+            this.btnRun.Text = "Run";
+            this.btnRun.UseVisualStyleBackColor = false;
+            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
             // tabControl3
             // 
             this.tabControl3.Controls.Add(this.tabPage1);
             this.tabControl3.Controls.Add(this.tabPage2);
             this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl3.Location = new System.Drawing.Point(1136, 3);
+            this.tabControl3.Location = new System.Drawing.Point(1225, 3);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(125, 685);
+            this.tabControl3.Size = new System.Drawing.Size(135, 862);
             this.tabControl3.TabIndex = 4;
             // 
             // tabPage1
@@ -236,7 +293,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(117, 659);
+            this.tabPage1.Size = new System.Drawing.Size(127, 836);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Controller";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -251,73 +308,18 @@
             this.tabPage2.Text = "Monitor";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnApply);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(1136, 694);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(125, 52);
-            this.panel2.TabIndex = 5;
-            // 
-            // btnApply
-            // 
-            this.btnApply.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btnApply.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnApply.Location = new System.Drawing.Point(-4, 7);
-            this.btnApply.Name = "btnApply";
-            this.btnApply.Size = new System.Drawing.Size(132, 39);
-            this.btnApply.TabIndex = 15;
-            this.btnApply.Text = "Apply";
-            this.btnApply.UseVisualStyleBackColor = false;
-            this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
-            // 
-            // btnHomeAll
-            // 
-            this.btnHomeAll.BackColor = System.Drawing.Color.Khaki;
-            this.btnHomeAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHomeAll.Location = new System.Drawing.Point(773, 6);
-            this.btnHomeAll.Name = "btnHomeAll";
-            this.btnHomeAll.Size = new System.Drawing.Size(132, 39);
-            this.btnHomeAll.TabIndex = 16;
-            this.btnHomeAll.Text = "Reset All";
-            this.btnHomeAll.UseVisualStyleBackColor = false;
-            // 
-            // btnPause
-            // 
-            this.btnPause.BackColor = System.Drawing.Color.RosyBrown;
-            this.btnPause.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPause.Location = new System.Drawing.Point(359, 6);
-            this.btnPause.Name = "btnPause";
-            this.btnPause.Size = new System.Drawing.Size(132, 40);
-            this.btnPause.TabIndex = 15;
-            this.btnPause.Text = "Pause";
-            this.btnPause.UseVisualStyleBackColor = false;
-            this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
-            // 
-            // btnRun
-            // 
-            this.btnRun.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRun.Location = new System.Drawing.Point(221, 6);
-            this.btnRun.Name = "btnRun";
-            this.btnRun.Size = new System.Drawing.Size(132, 40);
-            this.btnRun.TabIndex = 14;
-            this.btnRun.Text = "Run";
-            this.btnRun.UseVisualStyleBackColor = false;
-            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
-            // 
             // frmAppMachine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 749);
+            this.ClientSize = new System.Drawing.Size(1363, 919);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmAppMachine";
             this.Text = "appMachine";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAppMachine_FormClosing);
             this.Load += new System.EventHandler(this.frmAppMachine_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tabStateMachine.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
@@ -326,7 +328,6 @@
             this.tabStation.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

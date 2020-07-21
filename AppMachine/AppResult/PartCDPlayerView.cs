@@ -32,7 +32,8 @@ namespace AppMachine.AppResult
         {
             get { return GetPropValue(() => CycleTime); }
             set { SetPropValue(() => CycleTime, value); }
-        }
+        }       
+
         /// <summary>
         /// 
         /// </summary>

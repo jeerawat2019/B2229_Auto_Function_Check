@@ -17,7 +17,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Data
     public class LoggingResult : CompBase
     {
         public List<string> Partheader = new List<string>(){
-                "No","Date","Time","2DCode","StationId","JigNo","SFit-Result","TimeFinnish","StationId","JigNo","Anging-Result","TimeFinnish","StationId","JigNo","WD-Result","TimeFinnish","FinalResult",
+                "No","Date","Time","2DCode","StationId","JigNo","SFit1-Result","TimeFinnish","StationId","JigNo","SFit2-Result","TimeFinnish","StationId","JigNo","Anging-Result","TimeFinnish","StationId","JigNo","WD-Result","TimeFinnish","FinalResult",
         };
         int msec = 35;
         [XmlIgnore]

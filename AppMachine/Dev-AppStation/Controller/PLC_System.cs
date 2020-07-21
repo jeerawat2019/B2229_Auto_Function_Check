@@ -126,7 +126,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Controller
                 //PropertyInfo strMem = x.Value.GetType().GetProperty("MemControlPart");
                 ///
                 string memResult = null;
-
+                ///
                 var strMem = string.Format("{0}{1}", "R", x.Value.GetType().GetProperty("MemControlPart").GetValue(x.Value).ToString());
                 ///
                 GetMemControlWord(strMem, out memResult);
@@ -135,9 +135,138 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Controller
                 ///
                 return true;
             });
-            
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [StateMachineEnabled]
+        public void GetMemStatusJigEmpty()
+        {
+            ///
+            Machine.This.UserControlPart.All((x) =>
+            {
+                ///
+                string strBin = null;
+                ///
+                var strMem = string.Format("{0}{1}", "R", x.Value.GetType().GetProperty("MemStatusJigEmpty").GetValue(x.Value).ToString());
+                ///        
+                GetMemControlWord(strMem, out strBin);
+                ///
+                PropertyInfo propertie = x.Value.GetType().GetProperty("PartJigViews");//.GetValue(x.Value,null);// as AppPartJigView[];
+                ///
+                AppPartJigView[] PartJig = (AppPartJigView[])propertie.GetValue(x.Value);
+                ///
+                PartUpdateStatusJigEmpty(PartJig, strBin, x.Value);
+                ///
+                return true;
+            });
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        private void PartUpdateStatusJigEmpty(AppPartJigView[] partJig, string strBin, AppUserControlBase app)
+        {
+            ///
+            DetermineData(partJig, ref strBin);
+            ///
+            partJig.All((x) =>
+            {
+                if (x is AppPartJigView)
+                {
+                    var part = (AppPartJigView)x;
+                    ///
+                    if (part.CDPlayer.IsProcess == Part.Process.Empty || part.CDPlayer.IsProcess == Part.Process.Null)
+                    {
+                        part.CDPlayer.IsProcess = (io[int.Parse(part.CDPlayer.PartId.ToString())] == '1') ? Part.Process.Start : Part.Process.Empty;
+                        ///
+                        if (part.CDPlayer.IsProcess == Part.Process.Start)
+                        {
+                            Update2DPart(part.CDPlayer);
+                            ///
+                            io[int.Parse(part.CDPlayer.PartId.ToString())] = '0';
+                        }
+                    }
+                }
+                ///
+                return true;
+            });
+        }
+
+        private static void DetermineData(AppPartJigView[] partJig, ref string strBin)
+        {
+            if (partJig == null) return;
+
+            if (strBin.Length != partJig.Count())
+            {
+                var num = strBin.Length;
+                ///
+                for (int i = 0; i < partJig.Count() - num; i++)
+                    ///
+                    strBin = string.Format("{0}{1}", "0", strBin);
+            }
+            ///
+            char[] io = strBin.ToCharArray();
+            ///
+            Array.Reverse(io);
+            ///
+            strBin = new string(io);
 
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [StateMachineEnabled]
+        public void GetMemNotUseJig()
+        {
+            ///
+            Machine.This.UserControlPart.All((x) =>
+            {
+                ///
+                string memResult = null;
+                ///
+                var strMem = string.Format("{0}{1}", "R", x.Value.GetType().GetProperty("MemNotUseJig").GetValue(x.Value).ToString());
+                ///
+                GetMemControlWord(strMem, out memResult);
+                ///
+                PropertyInfo propertie = x.Value.GetType().GetProperty("PartJigViews");//.GetValue(x.Value,null);// as AppPartJigView[];
+                ///
+                AppPartJigView[] PartJig = (AppPartJigView[])propertie.GetValue(x.Value);
+                ///
+                PartNotUseJig(PartJig, memResult, x.Value);
+                ///
+                return true;
+            });
+        }
+
+        private void PartNotUseJig(AppPartJigView[] partJig, string strBin, AppUserControlBase value)
+        {
+            ///
+            DetermineData(partJig, ref strBin);
+            ///
+            partJig.All((x) =>
+            {
+                if (x is AppPartJigView)
+                {
+                    var part = (AppPartJigView)x;
+                    ///
+                    if (part.CDPlayer.IsProcess == Part.Process.Empty || part.CDPlayer.IsProcess == Part.Process.Null)
+                    {
+                        part.CDPlayer.IsProcess = (io[int.Parse(part.CDPlayer.PartId.ToString())] == '1') ? Part.Process.Start : Part.Process.Empty;
+                        ///
+                        if (part.CDPlayer.IsProcess == Part.Process.Start)
+                        {
+                            Update2DPart(part.CDPlayer);
+                            ///
+                            io[int.Parse(part.CDPlayer.PartId.ToString())] = '0';
+                        }
+                    }
+                }
+                ///
+                return true;
+            });
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -154,27 +283,29 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Controller
                 ///
                 var binstr = x.Value.GetType().GetProperty("MemBinProcess").GetValue(x.Value).ToString();
                 ///
-                UpdateProcessPart(PartJig, binstr);
+                UpdateProcessPart(PartJig, binstr, x.Value);
                 ///
                 return true;
             });
         }
+
+
         /// <summary>
         /// 
         /// </summary>
         /// <param name="appPartJigViews"></param>
         /// <param name="strBin"></param>
-        internal void UpdateProcessPart(AppPartJigView[] appPartJigViews , string strBin)
+        internal void UpdateProcessPart(AppPartJigView[] appPartJigViews, string strBin, AppUserControlBase app)
         {
             if (appPartJigViews == null) return;
 
-            if(strBin.Length != appPartJigViews.Count())
+            if (strBin.Length != appPartJigViews.Count())
             {
                 var num = strBin.Length;
                 ///
                 for (int i = 0; i < appPartJigViews.Count() - num; i++)
-                ///
-                    strBin = string.Format("{0}{1}","0", strBin);
+                    ///
+                    strBin = string.Format("{0}{1}", "0", strBin);
             }
             ///
             char[] io = strBin.ToCharArray();
@@ -187,33 +318,41 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Controller
                 {
                     var part = (AppPartJigView)x;
                     ///
-                    if (part.CDPlayer.IsProcess == Part.Process.Empty)
+                    if (part.CDPlayer.IsProcess == Part.Process.Empty || part.CDPlayer.IsProcess == Part.Process.Null)
                     {
                         part.CDPlayer.IsProcess = (io[int.Parse(part.CDPlayer.PartId.ToString())] == '1') ? Part.Process.Start : Part.Process.Empty;
                         ///
                         if (part.CDPlayer.IsProcess == Part.Process.Start)
                         {
                             Update2DPart(part.CDPlayer);
+                            ///
+                            io[int.Parse(part.CDPlayer.PartId.ToString())] = '0';
                         }
                     }
                 }
                 ///
                 return true;
             });
+            //Array.Reverse(io);
+            /////
+            //string strout = new string(io);
+            /////
+            //int output = Convert.ToInt32(strout, 2);
+            /////
+            //string strMem = string.Format("{0}{1}", "R", app.GetType().GetProperty("MemControlPart").GetValue(app).ToString());
+            /////
+            //if (SetOffStartJigs(strMem, output.ToString()) != SequenceError.Normal)
+            //{
+            //    X_CoreS.LogAlarmPopup("Plc Wtite result error!", $"TimeOut waiting for SetStatusProcess of'{this.Nickname}'");
+            //}
         }
-        //[StateMachineEnabled]
-        //public  void ReadData2DCode()
-        //{
-        //    List<string> data2DCode = new List<string>();
-        //    this.mComPLCLink.GetData2DCode("D1200", out data2DCode);
-        //}
         /// <summary>
         /// 
         /// </summary>
         /// <param name="cDPlayer"></param>
         private void Update2DPart(PartCDPlayerView cDPlayer)
         {
-            string mem2D = string.Format("{0}{1}","R",(cDPlayer.PartDataMemory + (cDPlayer.PartId * 20)).ToString());
+            string mem2D = string.Format("{0}{1}","R",(cDPlayer.Mem2DCode).ToString());
             ///
             string data2DCode ;
             ///
@@ -228,7 +367,34 @@ namespace B2229_AT_FuncCheck.Dev_AppStation.Controller
                 cDPlayer.Data2DCode = data2DCode;
             }
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="memWord"></param>
+        /// <param name="strBin"></param>
+        /// <returns></returns>
+        public SequenceError SetOffStartJigs(string memWord, string strDec)
+        {
+            try
+            {
+                lock (this)
+                {                   
+                    ///
+                    this.mComPLCLink.WriteDeviceRandom2(memWord, "1", new System.Windows.Forms.TextBox() { Text = strDec });
+                    ///
+                    return SequenceError.Normal;
+                }
+            }
+            catch (Exception ex)
+            {
+                X_CoreS.LogError(ex, $"TimeOut waiting for SetConfStatusAuto of'{this.Nickname}'");
+                ///
+                return SequenceError.SetConfRead2DCode;
 
+            }
+
+            //}
+        }
         /// <summary>
         /// 
         /// </summary>

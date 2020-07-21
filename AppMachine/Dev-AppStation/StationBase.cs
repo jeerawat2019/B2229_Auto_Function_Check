@@ -232,6 +232,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
         {
             base.InitializeIDReferences();
             ///
+            mComPLCLink = X_CoreS.GetComponent(Dev_AppMachine.StaticName.PLC_TATTURN) as Dev_Component.ComuPLCLink;
         }
         [StateMachineEnabled]
         public virtual void InCrementJig()
@@ -244,6 +245,7 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
             this.IsEndStationIndex = (this.StationIndex >= this.EndStationIndex) ? true : false;
 
         }
+        private Dev_Component.ComuPLCLink mComPLCLink = null;
         /// <summary>
         /// 
         /// </summary>
@@ -252,6 +254,8 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
         {
             this.JigNumber = 1;
             this.StationIndex = 0;
+          
+            //this.mPartList = new List<string>();
         }
         /// <summary>
         /// 
@@ -290,6 +294,120 @@ namespace B2229_AT_FuncCheck.Dev_AppStation
         public virtual bool GetStatusTestJig()
         {
             return true;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="memWord"></param>
+        /// <param name="strBin"></param>
+        /// <returns></returns>
+        public SequenceError SetJigResultMemory(string memWord, string strDec)
+        {
+            try
+            {
+                lock (this)
+                {
+                    ///
+                    this.mComPLCLink.WriteDeviceRandom2(memWord, "1", new System.Windows.Forms.TextBox() { Text = strDec });
+                    ///
+                    return SequenceError.Normal;
+                }
+            }
+            catch (Exception ex)
+            {
+                X_CoreS.LogError(ex, $"TimeOut waiting for SetConfStatusAuto of'{this.Nickname}'");
+                return SequenceError.SetConfRead2DCode;
+
+            }
+
+            //}
+        }
+        public void Bin16_DataOut(string strBin,int lenght ,out string strOut)
+        {
+            strOut = "";
+            ///
+            if (strBin.Length != lenght)
+            {
+                var num = strBin.Length;
+                ///
+                for (int i = 0; i < (lenght - num); i++)
+                    ///
+                    strBin = string.Format("{0}{1}", "0", strBin);
+                ///
+                strOut = strBin;
+                    
+            }
+            else strOut = strBin;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        public SequenceError GetStatusMemory(string strMemFinnish, out string[] result)
+        {
+            result = null;
+            ///
+            int i = 1;
+            ///
+            try
+            {
+                lock (this)
+                {
+
+
+                    if (string.IsNullOrEmpty(strMemFinnish))
+                        throw new Exception("GetPartModels:> IsNullOrEmpty");
+
+                    ///
+                    this.mComPLCLink.ReadDeviceRandom2(new System.Windows.Forms.TextBox() { Text = strMemFinnish }, i.ToString(), out result);//20 word size
+                    ///
+                    return SequenceError.Normal;
+                }
+            }
+            catch (Exception ex)
+            {
+                X_CoreS.LogError(ex, $"TimeOut waiting for GetPartModel of'{this.Nickname}'");
+                return SequenceError.GetPartModel;
+            }
+        }
+        public SequenceError SetResult_StrToPLC(string WordStart = "D1000", string strResult = "", int ELEMENT_SIZE_WORD = 1)
+        {
+            try
+            {
+                lock (this)
+                {
+
+                    //set
+                    //{
+                    //var result = (status == true) ? 1 : 0;
+
+                    this.mComPLCLink.WriteMuiltiWordData(WordStart, strResult, ELEMENT_SIZE_WORD);
+                    //}
+                    return SequenceError.Normal;
+                }
+            }
+            catch (Exception ex)
+            {
+                X_CoreS.LogError(ex, $"TimeOut waiting for GetPartModel of'{this.Nickname}'");
+                ///
+                return SequenceError.SetResultPartToPLC;
+            }
+        }
+        public void BinToDecPartFinnish(char[] charBin, string strMemControlPart)
+        {
+            //Array.Reverse(charBin);
+            ///
+            string strDec = new string(charBin);
+            ///
+            int outputfinnish = Convert.ToInt32(strDec, 2);
+
+            string strMem = string.Format("{0}{1}", "R", strMemControlPart);
+            ///
+            if (SetJigResultMemory(strMem, outputfinnish.ToString()) != SequenceError.Normal)
+            {
+                X_CoreS.LogAlarmPopup("Plc Wtite result error!", $"TimeOut waiting for SetStatusProcess of'{this.Nickname}'");
+            }
         }
         /// <summary>
         /// 

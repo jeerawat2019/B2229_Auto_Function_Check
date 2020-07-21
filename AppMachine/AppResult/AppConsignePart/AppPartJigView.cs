@@ -74,7 +74,7 @@ namespace B2229_AT_FuncCheck.AppResult.AppConsignePart
         {
             switch (status)
             {
-                case "N/A":
+                case "NA":
                     lblPartId.BackColor = Color.Yellow;
                     this.Update();
                     break;

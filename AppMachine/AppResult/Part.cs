@@ -48,7 +48,7 @@ namespace AppMachine.AppResult
         //[Category("Status"), Browsable(true), Description("Part Status")]
         public string PartStatus
         {
-            get { return GetPropValue(() => PartStatus, "N/A"); }
+            get { return GetPropValue(() => PartStatus, "NA"); }
             set { SetPropValue(() => PartStatus, value); }
         }
         // <summary>

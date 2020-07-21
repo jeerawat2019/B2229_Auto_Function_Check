@@ -32,6 +32,18 @@ namespace B2229_AT_FuncCheck.Dev_AppMachine
             PD,
             IPQE,
         }
+        ///// <summary>
+        ///// Run Status
+        ///// </summary>
+        //[Category("General"), Browsable(true), Description("RunStatus")]
+        //[XmlIgnore]
+        //public List<string> LogsHeader
+        //{
+        //    [StateMachineEnabled]
+        //    get { return GetPropValue(() => LogsHeader); }
+        //    [StateMachineEnabled]
+        //    set { SetPropValue(() => LogsHeader, value); }
+        //}
         /// <summary>
         /// Stop when the current operation is finished
         /// </summary>
@@ -82,21 +94,21 @@ namespace B2229_AT_FuncCheck.Dev_AppMachine
         }
         [XmlIgnore]
         [Category("Part View"), Browsable(false), Description("Case Push Switch Reject Part")]
-        public AppPartJigColSFitViewss PartJigColSfit1
+        public AppPartJigColSFitViewss PartJigColSfit1View
         {
             //[StateMachineEnabled]
-            get { return GetPropValue(() => PartJigColSfit1); }
+            get { return GetPropValue(() => PartJigColSfit1View); }
             //[StateMachineEnabled]
-            set { SetPropValue(() => PartJigColSfit1, value); }
+            set { SetPropValue(() => PartJigColSfit1View, value); }
         }
         [XmlIgnore]
         [Category("Part View"), Browsable(false), Description("Case Push Switch Reject Part")]
-        public AppPartJigColSFitViewss PartJigColSfit2
+        public AppPartJigColSFitViewss PartJigColSfit2View
         {
             //[StateMachineEnabled]
-            get { return GetPropValue(() => PartJigColSfit2); }
+            get { return GetPropValue(() => PartJigColSfit2View); }
             //[StateMachineEnabled]
-            set { SetPropValue(() => PartJigColSfit2, value); }
+            set { SetPropValue(() => PartJigColSfit2View, value); }
         }
         [XmlIgnore]
         [Category("Part View"), Browsable(false), Description("Case Push Switch Reject Part")]

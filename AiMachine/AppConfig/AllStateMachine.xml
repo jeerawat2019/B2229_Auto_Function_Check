@@ -308,8 +308,8 @@
             </PathOutPlug>
           </PathArray>
           <GridLoc>
-            <X>4.5</X>
-            <Y>3.5</Y>
+            <X>2.5</X>
+            <Y>0.5</Y>
           </GridLoc>
           <Text>Start</Text>
         </SMStart>
@@ -364,7 +364,7 @@
             </PathOutError>
             <PathOut>
               <GridDistance>1.851351</GridDistance>
-              <TargetID>SMActionFlow_15</TargetID>
+              <TargetID>SMActionFlow_3</TargetID>
             </PathOut>
             <PathOutStop>
               <GridDistance>-0.5</GridDistance>
@@ -372,8 +372,8 @@
             </PathOutStop>
           </PathArray>
           <GridLoc>
-            <X>4.5</X>
-            <Y>4.5</Y>
+            <X>2.5</X>
+            <Y>1.5</Y>
           </GridLoc>
           <Text>StationInitialize</Text>
         </SMActionFlow>
@@ -851,42 +851,6 @@
           </GridLoc>
           <Text>WaitTime</Text>
         </SMActionFlow>
-        <SMActionFlow Name="SMActionFlow_15">
-          <NextChildNo>1</NextChildNo>
-          <ChildArray>
-            <SMMethod Name="SMMethod_0">
-              <NextChildNo>0</NextChildNo>
-              <Simulate>None</Simulate>
-              <Enabled>true</Enabled>
-              <MethodID>MainApp.AllStation.PLC_Q02Cpu.ReadData2DCode()</MethodID>
-            </SMMethod>
-          </ChildArray>
-          <Simulate>None</Simulate>
-          <Enabled>true</Enabled>
-          <PathArray>
-            <PathOutPlug>
-              <GridDistance>NaN</GridDistance>
-              <TargetID />
-            </PathOutPlug>
-            <PathOutError>
-              <GridDistance>0.5</GridDistance>
-              <TargetID />
-            </PathOutError>
-            <PathOut>
-              <GridDistance>0.5</GridDistance>
-              <TargetID />
-            </PathOut>
-            <PathOutStop>
-              <GridDistance>-0.5</GridDistance>
-              <TargetID />
-            </PathOutStop>
-          </PathArray>
-          <GridLoc>
-            <X>4.5</X>
-            <Y>6.5</Y>
-          </GridLoc>
-          <Text>Read2DCode</Text>
-        </SMActionFlow>
       </ChildArray>
       <Simulate>None</Simulate>
       <Enabled>true</Enabled>
@@ -927,7 +891,7 @@
       <LockText />
     </SMStateMachine>
     <SMStateMachine Name="SM_PC1_Sfit">
-      <NextChildNo>32</NextChildNo>
+      <NextChildNo>37</NextChildNo>
       <ChildArray>
         <SMStart Name="SMStart_0">
           <NextChildNo>0</NextChildNo>
@@ -1127,8 +1091,8 @@
               <TargetID />
             </PathOutError>
             <PathOut>
-              <GridDistance>3.905408</GridDistance>
-              <TargetID>SMActionFlow_15</TargetID>
+              <GridDistance>1.121621</GridDistance>
+              <TargetID>SMActionFlow_36</TargetID>
             </PathOut>
             <PathOutStop>
               <GridDistance>-0.5</GridDistance>
@@ -1215,7 +1179,7 @@
             </PathOutError>
             <PathOut>
               <GridDistance>0.8783782</GridDistance>
-              <TargetID>SMActionFlow_12</TargetID>
+              <TargetID />
             </PathOut>
             <PathOutStop>
               <GridDistance>-0.5168067</GridDistance>
@@ -1223,8 +1187,8 @@
             </PathOutStop>
           </PathArray>
           <GridLoc>
-            <X>5.5</X>
-            <Y>5.5</Y>
+            <X>8.5</X>
+            <Y>4.5</Y>
           </GridLoc>
           <Text>UpdateResultPart</Text>
         </SMActionFlow>
@@ -1437,7 +1401,7 @@
             </PathOutPlug>
             <PathOutBool>
               <GridDistance>0.9054052</GridDistance>
-              <TargetID>SMActionFlow_9</TargetID>
+              <TargetID>SMActionFlow_35</TargetID>
               <True>true</True>
               <PathOutDelayMS>0</PathOutDelayMS>
               <ID>B</ID>
@@ -1688,7 +1652,7 @@
               <NextChildNo>0</NextChildNo>
               <Simulate>None</Simulate>
               <Enabled>true</Enabled>
-              <MethodID>MainApp.AllStation.ST_PC3_Anging.AttachResultPart(MainApp.AllStation.ST_PC1_Sfit.CrrentResult)</MethodID>
+              <MethodID>MainApp.AllStation.ST_PC3_Anging.AttachResultPart(MainApp.AllStation.ST_PC1_Sfit.CerrentResult)</MethodID>
             </SMMethod>
           </ChildArray>
           <Simulate>None</Simulate>
@@ -1763,7 +1727,7 @@
               <NextChildNo>0</NextChildNo>
               <Simulate>None</Simulate>
               <Enabled>true</Enabled>
-              <MethodID>MainApp.AllStation.DataLogsResult.AttachResultPart(MainApp.AllStation.ST_PC1_Sfit.CrrentResult)</MethodID>
+              <MethodID>MainApp.AllStation.DataLogsResult.AttachResultPart(MainApp.AllStation.ST_PC1_Sfit.CerrentResult)</MethodID>
             </SMMethod>
           </ChildArray>
           <Simulate>None</Simulate>
@@ -1794,6 +1758,311 @@
             <Y>8.5</Y>
           </GridLoc>
           <Text>AttachDataLogs</Text>
+        </SMActionFlow>
+        <SMSubroutine Name="SMSubroutine_34">
+          <NextChildNo>6</NextChildNo>
+          <ChildArray>
+            <SMStart Name="SMStart_0">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOut>
+                  <GridDistance>1.824324</GridDistance>
+                  <TargetID>SMActionFlow_3</TargetID>
+                </PathOut>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>0.5</Y>
+              </GridLoc>
+              <Text>Enter</Text>
+            </SMStart>
+            <SMExit Name="SMExit_1">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>6.5</Y>
+              </GridLoc>
+              <Text>Return</Text>
+            </SMExit>
+            <SMReturnStop Name="SMReturnStop_2">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+              </PathArray>
+              <GridLoc>
+                <X>0.5</X>
+                <Y>3.5</Y>
+              </GridLoc>
+              <Text>Stop</Text>
+            </SMReturnStop>
+            <SMActionFlow Name="SMActionFlow_3">
+              <NextChildNo>1</NextChildNo>
+              <ChildArray>
+                <SMMethod Name="SMMethod_0">
+                  <NextChildNo>0</NextChildNo>
+                  <Simulate>None</Simulate>
+                  <Enabled>true</Enabled>
+                  <MethodID>MainApp.AllStation.ST_PC1_Sfit.UpdateResultPart()</MethodID>
+                </SMMethod>
+              </ChildArray>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutError>
+                  <GridDistance>0.5</GridDistance>
+                  <TargetID />
+                </PathOutError>
+                <PathOut>
+                  <GridDistance>0.8513513</GridDistance>
+                  <TargetID>SMActionFlow_4</TargetID>
+                </PathOut>
+                <PathOutStop>
+                  <GridDistance>-0.5</GridDistance>
+                  <TargetID />
+                </PathOutStop>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>2.5</Y>
+              </GridLoc>
+              <Text>UpdateResultPart</Text>
+            </SMActionFlow>
+            <SMActionFlow Name="SMActionFlow_4">
+              <NextChildNo>1</NextChildNo>
+              <ChildArray>
+                <SMMethod Name="SMMethod_0">
+                  <NextChildNo>0</NextChildNo>
+                  <Simulate>None</Simulate>
+                  <Enabled>true</Enabled>
+                  <MethodID>MainApp.AllStation.ST_PC1_Sfit.SetResultToPLC()</MethodID>
+                </SMMethod>
+              </ChildArray>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutError>
+                  <GridDistance>0.5</GridDistance>
+                  <TargetID />
+                </PathOutError>
+                <PathOut>
+                  <GridDistance>0.9864865</GridDistance>
+                  <TargetID>SMActionFlow_5</TargetID>
+                </PathOut>
+                <PathOutStop>
+                  <GridDistance>-0.5</GridDistance>
+                  <TargetID />
+                </PathOutStop>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>3.5</Y>
+              </GridLoc>
+              <Text>SetResultToPLC</Text>
+            </SMActionFlow>
+            <SMActionFlow Name="SMActionFlow_5">
+              <NextChildNo>1</NextChildNo>
+              <ChildArray>
+                <SMMethod Name="SMMethod_0">
+                  <NextChildNo>0</NextChildNo>
+                  <Simulate>None</Simulate>
+                  <Enabled>true</Enabled>
+                  <MethodID>MainApp.AllStation.ST_PC1_Sfit.SetConfirmResult()</MethodID>
+                </SMMethod>
+              </ChildArray>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutError>
+                  <GridDistance>0.5</GridDistance>
+                  <TargetID />
+                </PathOutError>
+                <PathOut>
+                  <GridDistance>1.986486</GridDistance>
+                  <TargetID>SMExit_1</TargetID>
+                </PathOut>
+                <PathOutStop>
+                  <GridDistance>-0.5</GridDistance>
+                  <TargetID />
+                </PathOutStop>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>4.5</Y>
+              </GridLoc>
+              <Text>SetConf.Result</Text>
+            </SMActionFlow>
+          </ChildArray>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <PathArray>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOut>
+              <GridDistance>0.5</GridDistance>
+              <TargetID />
+            </PathOut>
+            <PathOutStop>
+              <GridDistance>-0.5</GridDistance>
+              <TargetID />
+            </PathOutStop>
+          </PathArray>
+          <GridLoc>
+            <X>8.5</X>
+            <Y>3.5</Y>
+          </GridLoc>
+          <Text>S-Fit1 Result</Text>
+          <GridCorner>
+            <X>0</X>
+            <Y>0</Y>
+          </GridCorner>
+          <GridSize>
+            <Width>10</Width>
+            <Height>20</Height>
+          </GridSize>
+          <ScopeID />
+          <PrevScopeID />
+          <ForceStart>false</ForceStart>
+        </SMSubroutine>
+        <SMActionFlow Name="SMActionFlow_35">
+          <NextChildNo>1</NextChildNo>
+          <ChildArray>
+            <SMMethod Name="SMMethod_0">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <MethodID>AllStateMachine.SM_PC1_Sfit.SMSubroutine_34.Call()</MethodID>
+            </SMMethod>
+          </ChildArray>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <PathArray>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOutError>
+              <GridDistance>0.5</GridDistance>
+              <TargetID />
+            </PathOutError>
+            <PathOut>
+              <GridDistance>0.9594595</GridDistance>
+              <TargetID>SMActionFlow_12</TargetID>
+            </PathOut>
+            <PathOutStop>
+              <GridDistance>-0.5</GridDistance>
+              <TargetID />
+            </PathOutStop>
+          </PathArray>
+          <GridLoc>
+            <X>5.5</X>
+            <Y>5.5</Y>
+          </GridLoc>
+          <Text>CallUpdateResult</Text>
+        </SMActionFlow>
+        <SMActionFlow Name="SMActionFlow_36">
+          <NextChildNo>1</NextChildNo>
+          <ChildArray>
+            <SMMethod Name="SMMethod_0">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <MethodID>MainApp.AllStation.ST_PC1_Sfit.SetOffStartProcessJig()</MethodID>
+            </SMMethod>
+          </ChildArray>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <PathArray>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOutError>
+              <GridDistance>0.5</GridDistance>
+              <TargetID />
+            </PathOutError>
+            <PathOut>
+              <GridDistance>3.175677</GridDistance>
+              <TargetID>SMActionFlow_15</TargetID>
+            </PathOut>
+            <PathOutStop>
+              <GridDistance>-0.5</GridDistance>
+              <TargetID />
+            </PathOutStop>
+          </PathArray>
+          <GridLoc>
+            <X>2.5</X>
+            <Y>8.5</Y>
+          </GridLoc>
+          <Text>OffStartJigFormPLC</Text>
         </SMActionFlow>
       </ChildArray>
       <Simulate>None</Simulate>
@@ -1835,7 +2104,7 @@
       <LockText />
     </SMStateMachine>
     <SMStateMachine Name="SM_PC2_Sfit">
-      <NextChildNo>32</NextChildNo>
+      <NextChildNo>34</NextChildNo>
       <ChildArray>
         <SMStart Name="SMStart_0">
           <NextChildNo>0</NextChildNo>
@@ -2035,8 +2304,8 @@
               <TargetID />
             </PathOutError>
             <PathOut>
-              <GridDistance>3.932436</GridDistance>
-              <TargetID>SMActionFlow_15</TargetID>
+              <GridDistance>0.986487</GridDistance>
+              <TargetID>SMActionFlow_33</TargetID>
             </PathOut>
             <PathOutStop>
               <GridDistance>-0.5</GridDistance>
@@ -2107,7 +2376,7 @@
               <NextChildNo>0</NextChildNo>
               <Simulate>None</Simulate>
               <Enabled>true</Enabled>
-              <MethodID>MainApp.AllStation.ST_PC2_Sfit.UpdateResultPart()</MethodID>
+              <MethodID>AllStateMachine.SM_PC2_Sfit.SMSubroutine_32.Call()</MethodID>
             </SMMethod>
           </ChildArray>
           <Simulate>None</Simulate>
@@ -2548,7 +2817,7 @@
               <NextChildNo>0</NextChildNo>
               <Simulate>None</Simulate>
               <Enabled>true</Enabled>
-              <MethodID>MainApp.AllStation.ST_PC3_Anging.AttachResultPart(MainApp.AllStation.ST_PC2_Sfit.CrrentResult)</MethodID>
+              <MethodID>MainApp.AllStation.ST_PC3_Anging.AttachResultPart(MainApp.AllStation.ST_PC2_Sfit.CerrentResult)</MethodID>
             </SMMethod>
           </ChildArray>
           <Simulate>None</Simulate>
@@ -2671,7 +2940,7 @@
               <NextChildNo>0</NextChildNo>
               <Simulate>None</Simulate>
               <Enabled>true</Enabled>
-              <MethodID>MainApp.AllStation.DataLogsResult.AttachResultPart(MainApp.AllStation.ST_PC2_Sfit.CrrentResult)</MethodID>
+              <MethodID>MainApp.AllStation.DataLogsResult.AttachResultPart(MainApp.AllStation.ST_PC2_Sfit.CerrentResult)</MethodID>
             </SMMethod>
           </ChildArray>
           <Simulate>None</Simulate>
@@ -2702,6 +2971,275 @@
             <Y>8.5</Y>
           </GridLoc>
           <Text>AttachDataLogs</Text>
+        </SMActionFlow>
+        <SMSubroutine Name="SMSubroutine_32">
+          <NextChildNo>7</NextChildNo>
+          <ChildArray>
+            <SMStart Name="SMStart_0">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOut>
+                  <GridDistance>1.824324</GridDistance>
+                  <TargetID>SMActionFlow_4</TargetID>
+                </PathOut>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>0.5</Y>
+              </GridLoc>
+              <Text>Enter</Text>
+            </SMStart>
+            <SMExit Name="SMExit_1">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>6.5</Y>
+              </GridLoc>
+              <Text>Return</Text>
+            </SMExit>
+            <SMReturnStop Name="SMReturnStop_2">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+              </PathArray>
+              <GridLoc>
+                <X>0.5</X>
+                <Y>3.5</Y>
+              </GridLoc>
+              <Text>Stop</Text>
+            </SMReturnStop>
+            <SMActionFlow Name="SMActionFlow_4">
+              <NextChildNo>1</NextChildNo>
+              <ChildArray>
+                <SMMethod Name="SMMethod_0">
+                  <NextChildNo>0</NextChildNo>
+                  <Simulate>None</Simulate>
+                  <Enabled>true</Enabled>
+                  <MethodID>MainApp.AllStation.ST_PC2_Sfit.UpdateResultPart()</MethodID>
+                </SMMethod>
+              </ChildArray>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutError>
+                  <GridDistance>0.5</GridDistance>
+                  <TargetID />
+                </PathOutError>
+                <PathOut>
+                  <GridDistance>1.067568</GridDistance>
+                  <TargetID>SMActionFlow_5</TargetID>
+                </PathOut>
+                <PathOutStop>
+                  <GridDistance>-0.5</GridDistance>
+                  <TargetID />
+                </PathOutStop>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>2.5</Y>
+              </GridLoc>
+              <Text>UpdateResultPart</Text>
+            </SMActionFlow>
+            <SMActionFlow Name="SMActionFlow_5">
+              <NextChildNo>1</NextChildNo>
+              <ChildArray>
+                <SMMethod Name="SMMethod_0">
+                  <NextChildNo>0</NextChildNo>
+                  <Simulate>None</Simulate>
+                  <Enabled>true</Enabled>
+                  <MethodID>MainApp.AllStation.ST_PC2_Sfit.SetResultToPLC()</MethodID>
+                </SMMethod>
+              </ChildArray>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutError>
+                  <GridDistance>0.5</GridDistance>
+                  <TargetID />
+                </PathOutError>
+                <PathOut>
+                  <GridDistance>0.9324324</GridDistance>
+                  <TargetID>SMActionFlow_6</TargetID>
+                </PathOut>
+                <PathOutStop>
+                  <GridDistance>-0.5</GridDistance>
+                  <TargetID />
+                </PathOutStop>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>3.5</Y>
+              </GridLoc>
+              <Text>SetresultToPLC</Text>
+            </SMActionFlow>
+            <SMActionFlow Name="SMActionFlow_6">
+              <NextChildNo>1</NextChildNo>
+              <ChildArray>
+                <SMMethod Name="SMMethod_0">
+                  <NextChildNo>0</NextChildNo>
+                  <Simulate>None</Simulate>
+                  <Enabled>true</Enabled>
+                  <MethodID>MainApp.AllStation.ST_PC2_Sfit.SetConfirmResult()</MethodID>
+                </SMMethod>
+              </ChildArray>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutError>
+                  <GridDistance>0.5</GridDistance>
+                  <TargetID />
+                </PathOutError>
+                <PathOut>
+                  <GridDistance>1.824324</GridDistance>
+                  <TargetID>SMExit_1</TargetID>
+                </PathOut>
+                <PathOutStop>
+                  <GridDistance>-0.5</GridDistance>
+                  <TargetID />
+                </PathOutStop>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>4.5</Y>
+              </GridLoc>
+              <Text>SetConf.Result</Text>
+            </SMActionFlow>
+          </ChildArray>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <PathArray>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOut>
+              <GridDistance>0.5</GridDistance>
+              <TargetID />
+            </PathOut>
+            <PathOutStop>
+              <GridDistance>-0.5</GridDistance>
+              <TargetID />
+            </PathOutStop>
+          </PathArray>
+          <GridLoc>
+            <X>8.5</X>
+            <Y>3.5</Y>
+          </GridLoc>
+          <Text>S-Fit2 Result</Text>
+          <GridCorner>
+            <X>0</X>
+            <Y>0</Y>
+          </GridCorner>
+          <GridSize>
+            <Width>10</Width>
+            <Height>20</Height>
+          </GridSize>
+          <ScopeID />
+          <PrevScopeID />
+          <ForceStart>false</ForceStart>
+        </SMSubroutine>
+        <SMActionFlow Name="SMActionFlow_33">
+          <NextChildNo>1</NextChildNo>
+          <ChildArray>
+            <SMMethod Name="SMMethod_0">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <MethodID>MainApp.AllStation.ST_PC2_Sfit.SetOffStartProcessJig()</MethodID>
+            </SMMethod>
+          </ChildArray>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <PathArray>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOutError>
+              <GridDistance>0.5</GridDistance>
+              <TargetID />
+            </PathOutError>
+            <PathOut>
+              <GridDistance>3.094597</GridDistance>
+              <TargetID>SMActionFlow_15</TargetID>
+            </PathOut>
+            <PathOutStop>
+              <GridDistance>-0.5</GridDistance>
+              <TargetID />
+            </PathOutStop>
+          </PathArray>
+          <GridLoc>
+            <X>2.5</X>
+            <Y>8.5</Y>
+          </GridLoc>
+          <Text>OffStartJigFormPLC</Text>
         </SMActionFlow>
       </ChildArray>
       <Simulate>None</Simulate>
@@ -2743,7 +3281,7 @@
       <LockText />
     </SMStateMachine>
     <SMStateMachine Name="SM_PC3_Aging">
-      <NextChildNo>32</NextChildNo>
+      <NextChildNo>34</NextChildNo>
       <ChildArray>
         <SMStart Name="SMStart_0">
           <NextChildNo>0</NextChildNo>
@@ -2943,8 +3481,8 @@
               <TargetID />
             </PathOutError>
             <PathOut>
-              <GridDistance>4.202708</GridDistance>
-              <TargetID>SMActionFlow_15</TargetID>
+              <GridDistance>0.9324365</GridDistance>
+              <TargetID>SMActionFlow_33</TargetID>
             </PathOut>
             <PathOutStop>
               <GridDistance>-0.5</GridDistance>
@@ -3015,7 +3553,7 @@
               <NextChildNo>0</NextChildNo>
               <Simulate>None</Simulate>
               <Enabled>true</Enabled>
-              <MethodID>MainApp.AllStation.ST_PC3_Anging.UpdateResultPart()</MethodID>
+              <MethodID>AllStateMachine.SM_PC3_Aging.SMSubroutine_32.Call()</MethodID>
             </SMMethod>
           </ChildArray>
           <Simulate>None</Simulate>
@@ -3261,7 +3799,7 @@
             <PathOutBool>
               <GridDistance>6.034416</GridDistance>
               <Next>
-                <GridDistance>-1.680675</GridDistance>
+                <GridDistance>-1.663868</GridDistance>
               </Next>
               <TargetID>SMActionFlow_15</TargetID>
               <True>false</True>
@@ -3456,7 +3994,7 @@
               <NextChildNo>0</NextChildNo>
               <Simulate>None</Simulate>
               <Enabled>true</Enabled>
-              <MethodID>MainApp.AllStation.ST_PC1_WD.AttachResultPart(MainApp.AllStation.ST_PC3_Anging.CrrentResult)</MethodID>
+              <MethodID>MainApp.AllStation.ST_PC1_WD.AttachResultPart(MainApp.AllStation.ST_PC3_Anging.CerrentResult)</MethodID>
             </SMMethod>
           </ChildArray>
           <Simulate>None</Simulate>
@@ -3579,7 +4117,7 @@
               <NextChildNo>0</NextChildNo>
               <Simulate>None</Simulate>
               <Enabled>true</Enabled>
-              <MethodID>MainApp.AllStation.DataLogsResult.AttachResultPart(MainApp.AllStation.ST_PC3_Anging.CrrentResult)</MethodID>
+              <MethodID>MainApp.AllStation.DataLogsResult.AttachResultPart(MainApp.AllStation.ST_PC3_Anging.CerrentResult)</MethodID>
             </SMMethod>
           </ChildArray>
           <Simulate>None</Simulate>
@@ -3610,6 +4148,275 @@
             <Y>8.5</Y>
           </GridLoc>
           <Text>AttachDataLogs</Text>
+        </SMActionFlow>
+        <SMSubroutine Name="SMSubroutine_32">
+          <NextChildNo>6</NextChildNo>
+          <ChildArray>
+            <SMStart Name="SMStart_0">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOut>
+                  <GridDistance>1.851351</GridDistance>
+                  <TargetID>SMActionFlow_3</TargetID>
+                </PathOut>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>0.5</Y>
+              </GridLoc>
+              <Text>Enter</Text>
+            </SMStart>
+            <SMExit Name="SMExit_1">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>6.5</Y>
+              </GridLoc>
+              <Text>Return</Text>
+            </SMExit>
+            <SMReturnStop Name="SMReturnStop_2">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+              </PathArray>
+              <GridLoc>
+                <X>0.5</X>
+                <Y>3.5</Y>
+              </GridLoc>
+              <Text>Stop</Text>
+            </SMReturnStop>
+            <SMActionFlow Name="SMActionFlow_3">
+              <NextChildNo>1</NextChildNo>
+              <ChildArray>
+                <SMMethod Name="SMMethod_0">
+                  <NextChildNo>0</NextChildNo>
+                  <Simulate>None</Simulate>
+                  <Enabled>true</Enabled>
+                  <MethodID>MainApp.AllStation.ST_PC3_Anging.UpdateResultPart()</MethodID>
+                </SMMethod>
+              </ChildArray>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutError>
+                  <GridDistance>0.5</GridDistance>
+                  <TargetID />
+                </PathOutError>
+                <PathOut>
+                  <GridDistance>1.094595</GridDistance>
+                  <TargetID>SMActionFlow_4</TargetID>
+                </PathOut>
+                <PathOutStop>
+                  <GridDistance>-0.5</GridDistance>
+                  <TargetID />
+                </PathOutStop>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>2.5</Y>
+              </GridLoc>
+              <Text>UpdateResultPart</Text>
+            </SMActionFlow>
+            <SMActionFlow Name="SMActionFlow_4">
+              <NextChildNo>1</NextChildNo>
+              <ChildArray>
+                <SMMethod Name="SMMethod_0">
+                  <NextChildNo>0</NextChildNo>
+                  <Simulate>None</Simulate>
+                  <Enabled>true</Enabled>
+                  <MethodID>MainApp.AllStation.ST_PC3_Anging.SetResultToPLC()</MethodID>
+                </SMMethod>
+              </ChildArray>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutError>
+                  <GridDistance>0.5</GridDistance>
+                  <TargetID />
+                </PathOutError>
+                <PathOut>
+                  <GridDistance>1.013514</GridDistance>
+                  <TargetID>SMActionFlow_5</TargetID>
+                </PathOut>
+                <PathOutStop>
+                  <GridDistance>-0.5</GridDistance>
+                  <TargetID />
+                </PathOutStop>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>3.5</Y>
+              </GridLoc>
+              <Text>SetResultToPLC</Text>
+            </SMActionFlow>
+            <SMActionFlow Name="SMActionFlow_5">
+              <NextChildNo>1</NextChildNo>
+              <ChildArray>
+                <SMMethod Name="SMMethod_0">
+                  <NextChildNo>0</NextChildNo>
+                  <Simulate>None</Simulate>
+                  <Enabled>true</Enabled>
+                  <MethodID>MainApp.AllStation.ST_PC3_Anging.SetConfirmResult()</MethodID>
+                </SMMethod>
+              </ChildArray>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutError>
+                  <GridDistance>0.5</GridDistance>
+                  <TargetID />
+                </PathOutError>
+                <PathOut>
+                  <GridDistance>1.905405</GridDistance>
+                  <TargetID>SMExit_1</TargetID>
+                </PathOut>
+                <PathOutStop>
+                  <GridDistance>-0.5</GridDistance>
+                  <TargetID />
+                </PathOutStop>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>4.5</Y>
+              </GridLoc>
+              <Text>SetConf.Result</Text>
+            </SMActionFlow>
+          </ChildArray>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <PathArray>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOut>
+              <GridDistance>0.5</GridDistance>
+              <TargetID />
+            </PathOut>
+            <PathOutStop>
+              <GridDistance>-0.5</GridDistance>
+              <TargetID />
+            </PathOutStop>
+          </PathArray>
+          <GridLoc>
+            <X>8.5</X>
+            <Y>3.5</Y>
+          </GridLoc>
+          <Text>Anging Result</Text>
+          <GridCorner>
+            <X>0</X>
+            <Y>0</Y>
+          </GridCorner>
+          <GridSize>
+            <Width>10</Width>
+            <Height>20</Height>
+          </GridSize>
+          <ScopeID />
+          <PrevScopeID />
+          <ForceStart>false</ForceStart>
+        </SMSubroutine>
+        <SMActionFlow Name="SMActionFlow_33">
+          <NextChildNo>1</NextChildNo>
+          <ChildArray>
+            <SMMethod Name="SMMethod_0">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <MethodID>MainApp.AllStation.ST_PC3_Anging.SetOffStartProcessJig()</MethodID>
+            </SMMethod>
+          </ChildArray>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <PathArray>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOutError>
+              <GridDistance>0.5</GridDistance>
+              <TargetID />
+            </PathOutError>
+            <PathOut>
+              <GridDistance>2.932434</GridDistance>
+              <TargetID>SMActionFlow_15</TargetID>
+            </PathOut>
+            <PathOutStop>
+              <GridDistance>-0.5</GridDistance>
+              <TargetID />
+            </PathOutStop>
+          </PathArray>
+          <GridLoc>
+            <X>2.5</X>
+            <Y>8.5</Y>
+          </GridLoc>
+          <Text>OffStartJigFormPLC</Text>
         </SMActionFlow>
       </ChildArray>
       <Simulate>None</Simulate>
@@ -3651,7 +4458,7 @@
       <LockText />
     </SMStateMachine>
     <SMStateMachine Name="SM_PC4_WD">
-      <NextChildNo>31</NextChildNo>
+      <NextChildNo>33</NextChildNo>
       <ChildArray>
         <SMStart Name="SMStart_0">
           <NextChildNo>0</NextChildNo>
@@ -3923,7 +4730,7 @@
               <NextChildNo>0</NextChildNo>
               <Simulate>None</Simulate>
               <Enabled>true</Enabled>
-              <MethodID>MainApp.AllStation.ST_PC1_WD.UpdateResultPart()</MethodID>
+              <MethodID>AllStateMachine.SM_PC4_WD.SMSubroutine_32.Call()</MethodID>
             </SMMethod>
           </ChildArray>
           <Simulate>None</Simulate>
@@ -4392,7 +5199,7 @@
               <NextChildNo>0</NextChildNo>
               <Simulate>None</Simulate>
               <Enabled>true</Enabled>
-              <MethodID>MainApp.AllStation.DataLogsResult.AttachResultPart(MainApp.AllStation.ST_PC1_WD.CrrentResult)</MethodID>
+              <MethodID>MainApp.AllStation.DataLogsResult.AttachResultPart(MainApp.AllStation.ST_PC1_WD.CerrentResult)</MethodID>
             </SMMethod>
           </ChildArray>
           <Simulate>None</Simulate>
@@ -4460,6 +5267,275 @@
           </GridLoc>
           <Text>ClearPartResult</Text>
         </SMActionFlow>
+        <SMActionFlow Name="SMActionFlow_31">
+          <NextChildNo>1</NextChildNo>
+          <ChildArray>
+            <SMMethod Name="SMMethod_0">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <MethodID>MainApp.AllStation.ST_PC1_WD.SetOffStartProcessJig()</MethodID>
+            </SMMethod>
+          </ChildArray>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <PathArray>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOutError>
+              <GridDistance>0.5</GridDistance>
+              <TargetID />
+            </PathOutError>
+            <PathOut>
+              <GridDistance>0.5</GridDistance>
+              <TargetID />
+            </PathOut>
+            <PathOutStop>
+              <GridDistance>-0.5</GridDistance>
+              <TargetID />
+            </PathOutStop>
+          </PathArray>
+          <GridLoc>
+            <X>6.5</X>
+            <Y>8.5</Y>
+          </GridLoc>
+          <Text>OffStartJigFormPLC</Text>
+        </SMActionFlow>
+        <SMSubroutine Name="SMSubroutine_32">
+          <NextChildNo>6</NextChildNo>
+          <ChildArray>
+            <SMStart Name="SMStart_0">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOut>
+                  <GridDistance>1.986486</GridDistance>
+                  <TargetID>SMActionFlow_3</TargetID>
+                </PathOut>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>0.5</Y>
+              </GridLoc>
+              <Text>Enter</Text>
+            </SMStart>
+            <SMExit Name="SMExit_1">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>6.5</Y>
+              </GridLoc>
+              <Text>Return</Text>
+            </SMExit>
+            <SMReturnStop Name="SMReturnStop_2">
+              <NextChildNo>0</NextChildNo>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+              </PathArray>
+              <GridLoc>
+                <X>0.5</X>
+                <Y>3.5</Y>
+              </GridLoc>
+              <Text>Stop</Text>
+            </SMReturnStop>
+            <SMActionFlow Name="SMActionFlow_3">
+              <NextChildNo>1</NextChildNo>
+              <ChildArray>
+                <SMMethod Name="SMMethod_0">
+                  <NextChildNo>0</NextChildNo>
+                  <Simulate>None</Simulate>
+                  <Enabled>true</Enabled>
+                  <MethodID>MainApp.AllStation.ST_PC1_WD.UpdateResultPart()</MethodID>
+                </SMMethod>
+              </ChildArray>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutError>
+                  <GridDistance>0.5</GridDistance>
+                  <TargetID />
+                </PathOutError>
+                <PathOut>
+                  <GridDistance>0.9864866</GridDistance>
+                  <TargetID>SMActionFlow_4</TargetID>
+                </PathOut>
+                <PathOutStop>
+                  <GridDistance>-0.5</GridDistance>
+                  <TargetID />
+                </PathOutStop>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>2.5</Y>
+              </GridLoc>
+              <Text>UpdateResultPart</Text>
+            </SMActionFlow>
+            <SMActionFlow Name="SMActionFlow_4">
+              <NextChildNo>1</NextChildNo>
+              <ChildArray>
+                <SMMethod Name="SMMethod_0">
+                  <NextChildNo>0</NextChildNo>
+                  <Simulate>None</Simulate>
+                  <Enabled>true</Enabled>
+                  <MethodID>MainApp.AllStation.ST_PC1_WD.SetResultToPLC()</MethodID>
+                </SMMethod>
+              </ChildArray>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutError>
+                  <GridDistance>0.5</GridDistance>
+                  <TargetID />
+                </PathOutError>
+                <PathOut>
+                  <GridDistance>0.9054055</GridDistance>
+                  <TargetID>SMActionFlow_5</TargetID>
+                </PathOut>
+                <PathOutStop>
+                  <GridDistance>-0.5</GridDistance>
+                  <TargetID />
+                </PathOutStop>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>3.5</Y>
+              </GridLoc>
+              <Text>SetResultToPLC</Text>
+            </SMActionFlow>
+            <SMActionFlow Name="SMActionFlow_5">
+              <NextChildNo>1</NextChildNo>
+              <ChildArray>
+                <SMMethod Name="SMMethod_0">
+                  <NextChildNo>0</NextChildNo>
+                  <Simulate>None</Simulate>
+                  <Enabled>true</Enabled>
+                  <MethodID>MainApp.AllStation.ST_PC1_WD.SetConfirmResult()</MethodID>
+                </SMMethod>
+              </ChildArray>
+              <Simulate>None</Simulate>
+              <Enabled>true</Enabled>
+              <PathArray>
+                <PathOutPlug>
+                  <GridDistance>NaN</GridDistance>
+                  <TargetID />
+                </PathOutPlug>
+                <PathOutError>
+                  <GridDistance>0.5</GridDistance>
+                  <TargetID />
+                </PathOutError>
+                <PathOut>
+                  <GridDistance>1.932432</GridDistance>
+                  <TargetID>SMExit_1</TargetID>
+                </PathOut>
+                <PathOutStop>
+                  <GridDistance>-0.5</GridDistance>
+                  <TargetID />
+                </PathOutStop>
+              </PathArray>
+              <GridLoc>
+                <X>2.5</X>
+                <Y>4.5</Y>
+              </GridLoc>
+              <Text>SetConf.Result</Text>
+            </SMActionFlow>
+          </ChildArray>
+          <Simulate>None</Simulate>
+          <Enabled>true</Enabled>
+          <PathArray>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOutPlug>
+              <GridDistance>NaN</GridDistance>
+              <TargetID />
+            </PathOutPlug>
+            <PathOut>
+              <GridDistance>0.5</GridDistance>
+              <TargetID />
+            </PathOut>
+            <PathOutStop>
+              <GridDistance>-0.5</GridDistance>
+              <TargetID />
+            </PathOutStop>
+          </PathArray>
+          <GridLoc>
+            <X>8.5</X>
+            <Y>4.5</Y>
+          </GridLoc>
+          <Text>WD-Result</Text>
+          <GridCorner>
+            <X>0</X>
+            <Y>0</Y>
+          </GridCorner>
+          <GridSize>
+            <Width>10</Width>
+            <Height>20</Height>
+          </GridSize>
+          <ScopeID />
+          <PrevScopeID />
+          <ForceStart>false</ForceStart>
+        </SMSubroutine>
       </ChildArray>
       <Simulate>None</Simulate>
       <Enabled>true</Enabled>

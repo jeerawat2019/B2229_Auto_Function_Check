@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using X_Core.CompElement;
+using System.Xml.Serialization;
 
 namespace AppMachine.AppControlBase
 {
@@ -18,7 +19,46 @@ namespace AppMachine.AppControlBase
         public bool PreventDispose = false;
 
         private delegate void _delParamVoid();
-       
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public string MemBinProcess
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public int MemControlPart
+        {
+            get;
+            set;
+        }
+        [XmlIgnore]
+        public int MemStatusJigEmpty
+        {
+            get;
+            set;
+        }
+        [XmlIgnore]
+        public int MemNotUseJig
+        {
+            get;
+            set;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        [XmlIgnore]
+        public int MemRang
+        {
+            get;
+            set;
+        } = 10;
 
         public AppUserControlBase()
         {

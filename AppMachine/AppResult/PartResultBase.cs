@@ -46,11 +46,18 @@ namespace AppMachine.AppResult
         /// 
         /// </summary>
         [XmlIgnore]
-        public virtual int PartDataMemory
+        public virtual int Mem2DCode
         {
-            get { return GetPropValue(() => PartDataMemory, 0); }
-            set { SetPropValue(() => PartDataMemory, value); }
+            get { return GetPropValue(() => Mem2DCode, 0); }
+            set { SetPropValue(() => Mem2DCode, value); }
         }
+        [XmlIgnore]
+        public int MemResult
+        {
+            get { return GetPropValue(() => MemResult,0); }
+            set { SetPropValue(() => MemResult, value); }
+        }
+       
         /// <summary>
         /// 
         /// </summary>

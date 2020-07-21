@@ -100,13 +100,18 @@
           <NextChildNo>0</NextChildNo>
           <Simulate>None</Simulate>
           <Enabled>true</Enabled>
-          <IPAddress>192.168.1.10</IPAddress>
+          <IPAddress>192.168.0.40</IPAddress>
           <Port>0</Port>
           <Id>1</Id>
           <Description>CPU</Description>
           <Status>Normal</Status>
           <Model>Q02UDPU</Model>
           <StstionNumber>5</StstionNumber>
+          <mActUtlTypeClass>
+            <ActLogicalStationNumber>0</ActLogicalStationNumber>
+            <ActPassword />
+          </mActUtlTypeClass>
+          <mActSupportMsgClass />
           <IsPlcConnect>false</IsPlcConnect>
         </ComuPLCLink>
       </ChildArray>

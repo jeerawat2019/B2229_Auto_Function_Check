@@ -30,30 +30,32 @@ namespace B2229_AT_FuncCheck.AppResult.AppConsignePart
         /// <summary>
         /// 
         /// </summary>
-        [XmlIgnore]
-        public string MemBinProcess
-        {
-            get;
-            set;
-        } = null;
-        /// <summary>
-        /// 
-        /// </summary>
-        [XmlIgnore]
-        public int MemControlPart
-        {
-            get;
-            set;
-        }
-        /// <summary>
-        /// 
-        /// </summary>
-        [XmlIgnore]
-        public int MemRang
-        {
-            get;
-            set;
-        } = 10;
+        //[XmlIgnore]
+        //public string MemBinProcess
+        //{
+        //    get;
+        //    set;
+        //} = null;
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //[XmlIgnore]
+        //public int MemControlPart
+        //{
+        //    get;
+        //    set;
+        //}
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        //[XmlIgnore]
+        //public int MemRang
+        //{
+        //    get;
+        //    set;
+        //} = 10;
+        public int MemConfirmPart { get; internal set; }
+
         /// <summary>
         /// 
         /// </summary>
